@@ -6,7 +6,6 @@ import (
 	"crypto/rand"
 	"encoding/base64"
 	"errors"
-	"fmt"
 	"io"
 	"os"
 	"path/filepath"
@@ -83,13 +82,16 @@ func ClearSession() error {
 func LoadClaims() (*Claims, error) {
 	tokenStr, err := LoadSession()
 	if err != nil {
-		fmt.Println("[Error] Session expired or missing. Please log in again.")
-		return nil, err
+		// Session file does not exist — not an error
+		return nil, nil
+	}
+	if tokenStr == "" {
+		return nil, nil
 	}
 
 	claims, err := ParseJWT(tokenStr)
 	if err != nil {
-		fmt.Println("[Error] Invalid session. Please log in again.")
+		// Invalid or expired token
 		return nil, err
 	}
 

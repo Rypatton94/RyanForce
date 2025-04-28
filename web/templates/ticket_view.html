@@ -37,6 +37,23 @@
   <div class="flash-message success">{{ .Flash }}</div>
   {{ end }}
 
+  <hr>
+
+  <h3>Update Ticket Status</h3>
+  <form action="/tickets/{{ .Ticket.ID }}/update-status" method="POST">
+    <label for="status">New Status:</label><br>
+    <select name="status" id="status" required>
+      <option value="">--Select Status--</option>
+      <option value="open">Open</option>
+      <option value="in progress">In Progress</option>
+      <option value="pending">Pending</option>
+      <option value="closed">Closed</option>
+    </select><br><br>
+    <button type="submit">Update Status</button>
+  </form>
+
+  <hr>
+
   <h3>Comments</h3>
   <div class="comments">
     {{ range .Comments }}

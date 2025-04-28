@@ -56,9 +56,14 @@ func ClearDatabase(confirm bool) {
 	fmt.Println("Reseeding demo data...")
 	utils.LogInfo("[Maintenance] Starting reseed of demo data.")
 	SeedDemoData()
+	utils.ClearSession()
 
 	// Add pause and success message after reseeding
 	time.Sleep(500 * time.Millisecond)
 	fmt.Println("\033[32m[✔] Database reseed complete.\033[0m")
 	utils.LogInfo("[Maintenance] Database reseed finished successfully.")
+
+	// Clear session so old token doesn't break login
+	utils.ClearSession()
+	fmt.Println("Old session cleared. Please log in again.")
 }

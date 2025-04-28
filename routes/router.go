@@ -55,6 +55,7 @@ func SetupRouterWithEngine(r *gin.Engine) *gin.Engine {
 		ticketGroup.GET("/tech", web.ListTechTickets) // << ADD BACK
 		ticketGroup.GET("/:id", web.ViewTicketPage)
 		ticketGroup.POST("/:id/comments", web.AddComment)
+		ticketGroup.POST("/:id/update-status", web.UpdateTicketStatus)
 		ticketGroup.GET("/update/:id", web.ShowUpdateTicketForm)
 		ticketGroup.POST("/update/:id", web.HandleUpdateTicket)
 	}

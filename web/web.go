@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"time"
 )
 
 // ShowLoginPage renders the login HTML form.
@@ -27,6 +28,23 @@ func HandleWebLogin(c *gin.Context) {
 	if err != nil {
 		utils.LogWarning("[WebUI] Login failed for " + email + " from IP: " + ip)
 		c.HTML(http.StatusUnauthorized, "login.html", gin.H{"error": "Invalid credentials"})
+		return
+	}
+
+	// Parse the token to confirm user ID exists
+	claims, err := utils.ParseJWT(token)
+	if err != nil || claims == nil {
+		utils.LogWarning("[WebUI] Failed to parse token after login for " + email)
+		c.HTML(http.StatusInternalServerError, "login.html", gin.H{"error": "Login failed, please try again"})
+		return
+	}
+
+	var confirmUser models.User
+	if err := config.DB.First(&confirmUser, claims.UserID).Error; err != nil {
+		utils.LogWarning(fmt.Sprintf("[WebUI] Login token references missing user ID %d, clearing cookie.", claims.UserID))
+		c.SetCookie("token", "", -1, "/", "", false, true)
+		c.SetCookie("flash", "Session invalid or expired. Please log in again.", 3, "/", "", false, true)
+		c.Redirect(http.StatusSeeOther, "/login")
 		return
 	}
 
@@ -51,7 +69,9 @@ func ShowDashboard(c *gin.Context) {
 
 	var user models.User
 	if err := config.DB.First(&user, claims.UserID).Error; err != nil {
-		c.String(http.StatusInternalServerError, "Could not load user data")
+		utils.LogWarning(fmt.Sprintf("[WebUI] User not found for session (ID %d), clearing session.", claims.UserID))
+		c.SetCookie("token", "", -1, "/", "localhost", false, true)
+		c.Redirect(http.StatusFound, "/login")
 		return
 	}
 
@@ -197,4 +217,70 @@ func HandleUnlockUser(c *gin.Context) {
 	ip := c.ClientIP()
 	utils.LogInfo(fmt.Sprintf("[AdminUnlock] Admin %d unlocked user %s from IP %s", claims.UserID, email, ip))
 	c.HTML(http.StatusOK, "admin_unlock_user.html", gin.H{"success": "Account successfully unlocked."})
+}
+
+// UpdateTicketStatus allows admins, techs, or clients to update a ticket's status
+func UpdateTicketStatus(c *gin.Context) {
+	id := c.Param("id")
+	status := c.PostForm("status")
+
+	var ticket models.Ticket
+	if err := config.DB.First(&ticket, id).Error; err != nil {
+		c.SetCookie("flash", "Ticket not found", 3, "/", "", false, true)
+		c.Redirect(http.StatusSeeOther, "/dashboard")
+		return
+	}
+
+	tokenStr, err := c.Cookie("token")
+	if err != nil {
+		c.Redirect(http.StatusFound, "/login")
+		return
+	}
+
+	claims, err := utils.ParseJWT(tokenStr)
+	if err != nil {
+		c.Redirect(http.StatusFound, "/login")
+		return
+	}
+
+	// Role enforcement
+	switch claims.Role {
+	case "client":
+		if ticket.ClientID != claims.UserID {
+			c.SetCookie("flash", "Unauthorized to update this ticket", 3, "/", "", false, true)
+			c.Redirect(http.StatusSeeOther, "/dashboard")
+			return
+		}
+	case "tech":
+		if ticket.TechID == nil || *ticket.TechID != claims.UserID {
+			c.SetCookie("flash", "Unauthorized to update this ticket", 3, "/", "", false, true)
+			c.Redirect(http.StatusSeeOther, "/dashboard")
+			return
+		}
+	case "admin":
+		// Admin always allowed
+	default:
+		c.SetCookie("flash", "Unauthorized role", 3, "/", "", false, true)
+		c.Redirect(http.StatusSeeOther, "/dashboard")
+		return
+	}
+
+	// Update ticket status
+	ticket.Status = status
+	if status == "closed" && ticket.ClosedAt == nil {
+		now := time.Now()
+		ticket.ClosedAt = &now
+	} else if status != "closed" {
+		ticket.ClosedAt = nil
+	}
+
+	if err := config.DB.Save(&ticket).Error; err != nil {
+		utils.LogError(fmt.Sprintf("[WebUI] Failed to update ticket %s", ticket.Title), err)
+		c.SetCookie("flash", "Failed to update ticket status", 3, "/", "", false, true)
+		c.Redirect(http.StatusSeeOther, "/dashboard")
+		return
+	}
+
+	c.SetCookie("flash", "Ticket status updated", 3, "/", "", false, true)
+	c.Redirect(http.StatusSeeOther, fmt.Sprintf("/tickets/%s", id))
 }

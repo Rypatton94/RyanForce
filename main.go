@@ -80,13 +80,17 @@ func startWeb() {
 
 // startCLIWithSession handles session checks and displays dashboard in CLI mode
 func startCLIWithSession() {
-	token, err := utils.LoadSession()
-	if err != nil || token == "" {
-		fmt.Println("[Session expired] Please log in again.")
+	claims, err := utils.LoadClaims()
+	if err != nil {
+		fmt.Println("[Error] Invalid or expired session. Please log in again.")
 		utils.ClearSession()
+	}
 
-		token, claims, err := handlers.PromptLogin()
+	if claims == nil {
+		// No session yet or session cleared — prompt fresh login
+		token, newClaims, err := handlers.PromptLogin()
 		if err != nil {
+			fmt.Println("[Error] Login failed. Exiting.")
 			utils.LogError("[Startup] Login failed", err)
 			return
 		}
@@ -95,14 +99,14 @@ func startCLIWithSession() {
 			return
 		}
 		utils.LogInfo("[Startup] New session saved after login")
-		handlers.DisplayDashboard(claims)
+		handlers.DisplayDashboard(newClaims)
 	} else {
-		claims, _ := utils.ParseJWT(token) // Should not error here if LoadSession succeeded
 		utils.LogInfo("[Startup] Resuming session")
 		handlers.DisplayDashboard(claims)
 	}
 
 	startCLI()
+
 }
 
 // startCLI begins the interactive CLI input loop

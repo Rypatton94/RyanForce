@@ -4,6 +4,7 @@ import (
 	"RyanForce/config"
 	"RyanForce/models"
 	"RyanForce/utils"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,26 +24,32 @@ func SeedDemoData() {
 		}
 	}
 
+	// Helper function to marshal skills
+	marshalSkills := func(skills []string) string {
+		bytes, _ := json.Marshal(skills)
+		return string(bytes)
+	}
+
 	// Create Users
 	users := []struct {
 		Email    string
 		Password string
 		Role     string
 		Name     string
-		Skills   string
+		Skills   []string
 		Account  string // Match to account Name
 	}{
 		// Admin
-		{"admin@example.com", "Admin123!", "admin", "Admin User", "", ""},
+		{"admin@example.com", "Admin123!", "admin", "Admin User", nil, ""},
 
 		// Techs
-		{"alice.tech@example.com", "Tech123!", "tech", "Alice Anderson", "Networking,Security,Windows", ""},
-		{"bob.tech@example.com", "Tech123!", "tech", "Bob Brown", "MacOS,Hardware Repair,Customer Support", ""},
-		{"charlie.tech@example.com", "Tech123!", "tech", "Charlie Clark", "Linux,Cloud,Scripting", ""},
+		{"alice.tech@example.com", "Tech123!", "tech", "Alice Anderson", []string{"Networking", "Security", "Windows"}, ""},
+		{"bob.tech@example.com", "Tech123!", "tech", "Bob Brown", []string{"MacOS", "Hardware Repair", "Customer Support"}, ""},
+		{"charlie.tech@example.com", "Tech123!", "tech", "Charlie Clark", []string{"Linux", "Cloud", "Scripting"}, ""},
 
 		// Clients
-		{"cindy.client@acme.com", "Client123!", "client", "Cindy Client", "", "Acme Corp"},
-		{"gary.client@globex.com", "Client123!", "client", "Gary Globex", "", "Globex Inc"},
+		{"cindy.client@acme.com", "Client123!", "client", "Cindy Client", nil, "Acme Corp"},
+		{"gary.client@globex.com", "Client123!", "client", "Gary Globex", nil, "Globex Inc"},
 	}
 
 	createdUsers := make(map[string]models.User)
@@ -67,8 +74,12 @@ func SeedDemoData() {
 			PasswordHash: hash,
 			Role:         u.Role,
 			Name:         u.Name,
-			Skills:       u.Skills,
 			AccountID:    accountID,
+		}
+
+		// Marshal tech skills if user is a tech
+		if len(u.Skills) > 0 {
+			user.Skills = marshalSkills(u.Skills)
 		}
 
 		if err := config.DB.Create(&user).Error; err != nil {
@@ -85,16 +96,16 @@ func SeedDemoData() {
 		Description       string
 		Priority          string
 		Status            string
-		SkillsNeeded      string
+		SkillsNeeded      []string
 		ClientEmail       string
-		AssignedTechEmail string // Empty = Unassigned
+		AssignedTechEmail string
 	}{
-		{"Setup VPN Access", "Client needs secure VPN access configured.", "high", "open", "Networking,Security", "cindy.client@acme.com", "alice.tech@example.com"},
-		{"Broken MacBook Pro", "Laptop not booting after update.", "medium", "open", "MacOS,Hardware Repair", "gary.client@globex.com", "bob.tech@example.com"},
-		{"Cloud Backup Failure", "Scheduled backups to cloud are failing nightly.", "critical", "open", "Cloud,Linux", "cindy.client@acme.com", "charlie.tech@example.com"},
-		{"Password Reset", "User forgot password and needs reset.", "low", "open", "Customer Support", "gary.client@globex.com", "bob.tech@example.com"},
-		{"New Laptop Setup", "Prepare a new laptop for onboarding.", "medium", "open", "Windows", "cindy.client@acme.com", ""},
-		{"Server Monitoring Scripts Broken", "Monitoring scripts aren't reporting server stats.", "high", "open", "Scripting", "gary.client@globex.com", ""},
+		{"Setup VPN Access", "Client needs secure VPN access configured.", "high", "open", []string{"Networking", "Security"}, "cindy.client@acme.com", "alice.tech@example.com"},
+		{"Broken MacBook Pro", "Laptop not booting after update.", "medium", "open", []string{"MacOS", "Hardware Repair"}, "gary.client@globex.com", "bob.tech@example.com"},
+		{"Cloud Backup Failure", "Scheduled backups to cloud are failing nightly.", "critical", "open", []string{"Cloud", "Linux"}, "cindy.client@acme.com", "charlie.tech@example.com"},
+		{"Password Reset", "User forgot password and needs reset.", "low", "open", []string{"Customer Support"}, "gary.client@globex.com", "bob.tech@example.com"},
+		{"New Laptop Setup", "Prepare a new laptop for onboarding.", "medium", "open", []string{"Windows"}, "cindy.client@acme.com", ""},
+		{"Server Monitoring Scripts Broken", "Monitoring scripts aren't reporting server stats.", "high", "open", []string{"Scripting"}, "gary.client@globex.com", ""},
 	}
 
 	for _, t := range tickets {
@@ -119,7 +130,7 @@ func SeedDemoData() {
 			Status:       t.Status,
 			ClientID:     client.ID,
 			TechID:       techID,
-			SkillsNeeded: t.SkillsNeeded,
+			SkillsNeeded: marshalSkills(t.SkillsNeeded),
 		}
 
 		if err := config.DB.Create(&ticket).Error; err != nil {

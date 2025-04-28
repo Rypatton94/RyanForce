@@ -14,23 +14,18 @@ import (
 // ListTechs handles GET /admin/techs
 // Displays all technician accounts, optionally filtering by skill.
 func ListTechs(c *gin.Context) {
-	skill := strings.ToLower(strings.TrimSpace(c.Query("skill")))
 	var techs []models.User
+	config.DB.Where("role = ?", "tech").Find(&techs)
 
-	query := config.DB.Where("role = ?", "tech")
-	if skill != "" {
-		likePattern := "%" + skill + "%"
-		query = query.Where("LOWER(skills) LIKE ?", likePattern)
+	for i := range techs {
+		var parsedSkills []string
+		if err := json.Unmarshal([]byte(techs[i].Skills), &parsedSkills); err == nil {
+			techs[i].Skills = strings.Join(parsedSkills, ", ")
+		}
 	}
 
-	if err := query.Find(&techs).Error; err != nil {
-		c.String(http.StatusInternalServerError, "Error fetching technicians")
-		return
-	}
-
-	c.HTML(http.StatusOK, "admin_techs_list.html", gin.H{
+	c.HTML(http.StatusOK, "tech_list.html", gin.H{
 		"techs": techs,
-		"skill": skill,
 	})
 }
 
