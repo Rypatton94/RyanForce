@@ -20,24 +20,38 @@ import (
 // RyanForce CRM - Main Entry Point
 // Initializes database, seeds demo data, and launches CLI or WebUI
 func main() {
-	utils.InitLogger(false) // Set to true to log to console, false to log to file only
+	utils.InitLogger(false) // Log setup
 
 	config.Connect()
-	controllers.MaybeSeedDemoUsers()
 
-	// Determine mode based on command-line argument
-	var mode string
-	if len(os.Args) > 1 {
-		mode = strings.ToLower(os.Args[1])
+	// Check command-line arguments
+	args := os.Args[1:]
+	mode := "cli"
+	shouldSeed := false
+
+	for _, arg := range args {
+		switch strings.ToLower(arg) {
+		case "web":
+			mode = "web"
+		case "cli":
+			mode = "cli"
+		case "seed":
+			shouldSeed = true
+		default:
+			fmt.Printf("[Startup] Unknown argument '%s' (ignored)\n", arg)
+		}
 	}
 
-	switch mode {
-	case "web":
+	if shouldSeed {
+		fmt.Println("[Startup] Forcing database reseed...")
+		utils.LogInfo("[Startup] Admin manually requested database reseed.")
+		controllers.ClearDatabase(false) // will clear and reseed
+	}
+
+	// If we didn't seed-only, start the selected mode
+	if mode == "web" {
 		startWeb()
-	case "cli", "":
-		startCLIWithSession()
-	default:
-		fmt.Printf("[Startup] Unknown mode '%s'. Defaulting to CLI mode.\n", mode)
+	} else {
 		startCLIWithSession()
 	}
 }

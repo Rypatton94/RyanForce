@@ -81,7 +81,7 @@ func HandleCommand(cmd string) {
 	case "help", "h", "?":
 		handleHelp() // Display help/command list
 	case "seed-demo":
-		controllers.SeedDemoUsers() // Manually trigger seeding (dev use only)
+		controllers.SeedDemoData() // Manually trigger seeding
 	case "clear-db":
 		handleClearDB() // DANGER - admin-only wipe of all users and tickets
 	default:
@@ -873,6 +873,6 @@ func handleClearDB() {
 		return
 	}
 
-	controllers.ClearDatabase()
+	controllers.ClearDatabase(true)
 	utils.LogWarning(fmt.Sprintf("[ClearDB] Admin %d wiped database", claims.UserID))
 }
