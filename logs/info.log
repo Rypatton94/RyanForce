@@ -532,3 +532,9 @@ INFO: 2025/04/27 11:19:07 web.go:80: [Logout] User logged out: client@example.co
 INFO: 2025/04/27 11:19:26 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
 INFO: 2025/04/27 11:19:26 auth.go:107: [Login] Successful login — client@example.com
 INFO: 2025/04/27 11:19:26 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/27 22:50:13 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 22:52:03 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 22:53:11 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/27 22:53:11 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/27 22:53:11 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/27 22:55:37 session.go:77: [Session] Session cleared.

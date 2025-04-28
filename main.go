@@ -25,11 +25,19 @@ func main() {
 	config.Connect()
 	controllers.MaybeSeedDemoUsers()
 
-	// Determine mode: "cli" or "web"
-	mode := os.Getenv("RYANFORCE_MODE")
-	if mode == "web" {
+	// Determine mode based on command-line argument
+	var mode string
+	if len(os.Args) > 1 {
+		mode = strings.ToLower(os.Args[1])
+	}
+
+	switch mode {
+	case "web":
 		startWeb()
-	} else {
+	case "cli", "":
+		startCLIWithSession()
+	default:
+		fmt.Printf("[Startup] Unknown mode '%s'. Defaulting to CLI mode.\n", mode)
 		startCLIWithSession()
 	}
 }
@@ -75,7 +83,6 @@ func startCLIWithSession() {
 		utils.LogInfo("[Startup] New session saved after login")
 		handlers.DisplayDashboard(claims)
 	} else {
-		// No need to ParseJWT again — LoadSession() already validated the token.
 		claims, _ := utils.ParseJWT(token) // Should not error here if LoadSession succeeded
 		utils.LogInfo("[Startup] Resuming session")
 		handlers.DisplayDashboard(claims)

@@ -11,34 +11,26 @@ import (
 	"testing"
 )
 
-// TestMain sets up in-memory DB before any tests run
 func TestMain(m *testing.M) {
-	// Initialize temporary in-memory database
 	db, err := gorm.Open(sqlite.Open(":memory:"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect to in-memory test database")
 	}
 	config.DB = db
 
-	// Migrate schema
 	err = config.DB.AutoMigrate(&models.User{}, &models.Ticket{}, &models.Comment{}, &models.Account{})
 	if err != nil {
 		panic("failed to migrate test database schema")
 	}
 
-	// Run tests
 	code := m.Run()
-
-	// Exit with test result
 	os.Exit(code)
 }
 
-// mockToken generates a JWT token for testing with given role
 func mockToken(role string) (string, error) {
 	return utils.GenerateJWT(1, "test@example.com", role)
 }
 
-// setupMockSession creates a fake session token for a given role
 func setupMockSession(t *testing.T, role string) {
 	token, err := mockToken(role)
 	if err != nil {
@@ -50,15 +42,9 @@ func setupMockSession(t *testing.T, role string) {
 	}
 }
 
-// cleanupSession clears session after tests
-func cleanupSession() {
-	utils.ClearSession()
-}
-
-// ======= Admin Role Tests =======
 func TestCLIHandlersAsAdmin(t *testing.T) {
 	setupMockSession(t, "admin")
-	defer cleanupSession()
+	defer utils.ClearSession()
 
 	t.Run("AdminWhoami", func(t *testing.T) {
 		handleWhoami()
@@ -75,12 +61,15 @@ func TestCLIHandlersAsAdmin(t *testing.T) {
 	t.Run("AdminViewLogs", func(t *testing.T) {
 		handleViewLogs()
 	})
+
+	t.Run("AdminAssignTicket", func(t *testing.T) {
+		t.Skip("Skipping because it needs manual stdin input")
+	})
 }
 
-// ======= Tech Role Tests =======
 func TestCLIHandlersAsTech(t *testing.T) {
 	setupMockSession(t, "tech")
-	defer cleanupSession()
+	defer utils.ClearSession()
 
 	t.Run("TechWhoami", func(t *testing.T) {
 		handleWhoami()
@@ -95,10 +84,9 @@ func TestCLIHandlersAsTech(t *testing.T) {
 	})
 }
 
-// ======= Client Role Tests =======
 func TestCLIHandlersAsClient(t *testing.T) {
 	setupMockSession(t, "client")
-	defer cleanupSession()
+	defer utils.ClearSession()
 
 	t.Run("ClientWhoami", func(t *testing.T) {
 		handleWhoami()
@@ -113,7 +101,6 @@ func TestCLIHandlersAsClient(t *testing.T) {
 	})
 }
 
-// ======= Expired Session Behavior =======
 func TestSessionExpiredBehavior(t *testing.T) {
 	utils.ClearSession()
 
@@ -126,13 +113,10 @@ func TestSessionExpiredBehavior(t *testing.T) {
 	})
 }
 
-// ======= Specific Functional Tests =======
-
 func TestHandleViewTicket(t *testing.T) {
 	setupMockSession(t, "admin")
-	defer cleanupSession()
+	defer utils.ClearSession()
 
-	// Create fake ticket
 	ticket := models.Ticket{
 		Title:       "Test Ticket",
 		Description: "Test ticket description.",
@@ -144,7 +128,6 @@ func TestHandleViewTicket(t *testing.T) {
 		t.Fatalf("Failed to create test ticket: %v", err)
 	}
 
-	// Create a temporary file containing the ticket ID
 	tempFile, err := os.CreateTemp("", "input")
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
@@ -159,7 +142,6 @@ func TestHandleViewTicket(t *testing.T) {
 		t.Fatalf("Failed to seek temp file: %v", err)
 	}
 
-	// Swap os.Stdin temporarily
 	oldStdin := os.Stdin
 	defer func() { os.Stdin = oldStdin }()
 	os.Stdin = tempFile

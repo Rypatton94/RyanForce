@@ -51,3 +51,6 @@ WARN: 2025/04/26 16:21:01 seed.go:52: [Seed] No users found. Seeding demo users.
 WARN: 2025/04/26 16:21:43 ticket.go:537: [TicketWebUI] Missing Authorization header
 WARN: 2025/04/27 10:53:36 seed.go:52: [Seed] No users found. Seeding demo users.
 WARN: 2025/04/27 18:14:42 session.go:46: [Session] No session file found.
+WARN: 2025/04/27 22:50:13 session.go:47: [Session] No session file found.
+WARN: 2025/04/27 22:52:03 session.go:47: [Session] No session file found.
+WARN: 2025/04/27 22:55:37 session.go:47: [Session] No session file found.
