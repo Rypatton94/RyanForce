@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System Reports</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+  <div><strong>RyanForce Admin</strong></div>
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/admin/clients">Manage Clients</a>
+    <a href="/admin/techs">Manage Techs</a>
+    <a href="/admin/accounts">Manage Accounts</a>
+    <a href="/admin/reports">View Reports</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<main role="main" class="container">
+  <h2>System Reports</h2>
+
+  <section>
+    <h3>Filter by Date & Time Range</h3>
+    <form method="GET" action="/admin/reports">
+      <label for="after">From:</label>
+      <input type="datetime-local" id="after" name="after" value="{{ .after }}">
+
+      <label for="before">To:</label>
+      <input type="datetime-local" id="before" name="before" value="{{ .before }}">
+
+      <label for="search">Log Search:</label>
+      <input type="text" id="search" name="search" value="{{ .search }}" placeholder="Search logs...">
+
+      <button type="submit">Apply Filters</button>
+    </form>
+
+    <p>
+      <a href="/admin/reports/export?after={{ .after }}&before={{ .before }}" class="button">Download CSV Summary</a>
+      <a href="/admin/reports/audit/export?search={{ .search }}" class="button">Download Audit Logs</a>
+    </p>
+  </section>
+
+  <section>
+    <h3>Ticket Count by Status</h3>
+    <ul>
+      {{ range .statuses }}
+      <li><strong>{{ .Status }}:</strong> {{ .Count }}</li>
+      {{ else }}
+      <li>No ticket status data found.</li>
+      {{ end }}
+    </ul>
+  </section>
+
+  <section>
+    <h3>Ticket Count by Priority</h3>
+    <ul>
+      {{ range .priorities }}
+      <li><strong>{{ .Priority }}:</strong> {{ .Count }}</li>
+      {{ else }}
+      <li>No ticket priority data found.</li>
+      {{ end }}
+    </ul>
+  </section>
+
+  <section>
+    <h3>Audit Logs</h3>
+    <pre>
+{{ range .logs }}
+{{ . }}
+{{ else }}
+No logs found.
+{{ end }}
+    </pre>
+  </section>
+
+  <div class="pagination">
+    {{ if gt .page 1 }}
+    <a href="?page={{ dec .page }}&limit={{ .limit }}&search={{ .search }}&after={{ .after }}&before={{ .before }}">← Prev</a>
+    {{ end }}
+    <span>Page {{ .page }}</span>
+    {{ if lt (multiply .page .limit) .logCount }}
+    <a href="?page={{ inc .page }}&limit={{ .limit }}&search={{ .search }}&after={{ .after }}&before={{ .before }}">Next →</a>
+    {{ end }}
+  </div>
+</main>
+
+</body>
+</html>

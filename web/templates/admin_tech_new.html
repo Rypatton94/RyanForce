@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Technician</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Add New Technician</h2>
+  <form action="/admin/techs" method="POST">
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" name="Email" required>
+
+    <label for="name">Full Name:</label>
+    <input id="name" type="text" name="Name" required>
+
+    <label for="skillInput">Skills:</label>
+    <div style="margin-bottom: 0.5rem;">
+      <input id="skillInput" type="text" placeholder="Enter a skill...">
+      <button type="button" onclick="addSkill()">Add Skill</button>
+    </div>
+    <ul id="skillsList"></ul>
+
+    <input type="hidden" name="Skills" id="Skills">
+
+    <label for="password">Password:</label>
+    <input
+            id="password"
+            type="password"
+            name="Password"
+            required
+            minlength="8"
+            maxlength="32"
+            pattern="(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,32}"
+            title="Must be 8–32 characters with a capital letter, number, and special character."
+    >
+
+    <button type="submit">Create Technician</button>
+  </form>
+</div>
+
+<script>
+  let skills = [];
+
+  function addSkill() {
+    const input = document.getElementById('skillInput');
+    const skill = input.value.trim();
+    if (skill && !skills.includes(skill)) {
+      skills.push(skill);
+      updateSkillsDisplay();
+      input.value = '';
+    }
+  }
+
+  function removeSkill(index) {
+    skills.splice(index, 1);
+    updateSkillsDisplay();
+  }
+
+  function updateSkillsDisplay() {
+    const list = document.getElementById('skillsList');
+    const hiddenInput = document.getElementById('Skills');
+    list.innerHTML = '';
+
+    skills.forEach((skill, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `${skill} <button type="button" onclick="removeSkill(${index})">X</button>`;
+      list.appendChild(li);
+    });
+
+    // Store as JSON array, not comma separated
+    hiddenInput.value = JSON.stringify(skills);
+  }
+</script>
+
+</body>
+</html>

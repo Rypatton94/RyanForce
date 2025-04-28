@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Technicians</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<header>
+  <div><strong>RyanForce Admin</strong></div>
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/admin/techs/new">Add Technician</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Technicians</h2>
+
+  {{ if .flash }}
+  <p class="success">{{ .flash }}</p>
+  {{ end }}
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Skills</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{ range .techs }}
+    <tr>
+      <td>{{ .ID }}</td>
+      <td>{{ .Email }}</td>
+      <td>{{ .Skills }}</td>
+      <td>{{ .Role }}</td>
+      <td>
+        <a href="/admin/techs/{{ .ID }}/edit">Edit</a> |
+        <form action="/admin/techs/{{ .ID }}/delete" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {{ else }}
+    <tr><td colspan="5">No technicians available.</td></tr>
+    {{ end }}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

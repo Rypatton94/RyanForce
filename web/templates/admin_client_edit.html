@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Client</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<header>
+  <div><strong>RyanForce Admin</strong></div>
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/admin/clients">Clients</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<div class="form-box">
+  <h2>Edit Client</h2>
+
+  {{ if .flash }}
+  <p class="success">{{ .flash }}</p>
+  {{ end }}
+
+  <form action="/admin/clients/{{ .client.ID }}" method="POST">
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" name="Email" value="{{ .client.Email }}" required>
+
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="Name" value="{{ .client.Name }}" required>
+
+    <label for="role">Role:</label>
+    <input id="role" type="text" name="Role" value="{{ .client.Role }}" readonly>
+
+    <label for="account">Assign to Account:</label>
+    <select name="AccountID" id="account">
+      <option value="">-- None --</option>
+      {{ range .accounts }}
+      {{ if eq .ID $.accountID }}
+      <option value="{{ .ID }}" selected>{{ .Name }}</option>
+      {{ else }}
+      <option value="{{ .ID }}">{{ .Name }}</option>
+      {{ end }}
+      {{ end }}
+    </select>
+
+    <br><br>
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
+
+</body>
+</html>

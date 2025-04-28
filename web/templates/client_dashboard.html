@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<header>
+  <div>
+    <strong>RyanForce Client Dashboard</strong>
+  </div>
+  <nav>
+    <span>{{ .user }}</span>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Welcome, Client</h2>
+  <p>Last login: {{ .lastLogin }}</p>
+
+  <h3>Available Actions</h3>
+  <ul>
+    <li><a href="/tickets/create">Create Support Ticket</a></li>
+    <li><a href="/tickets/mine">View My Tickets</a></li>
+    <li><a href="#">Update Profile</a></li>
+  </ul>
+</div>
+
+</body>
+</html>

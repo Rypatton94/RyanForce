@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unassigned Tickets</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<header>
+  <div><strong>RyanForce Admin</strong></div>
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Unassigned Tickets</h2>
+
+  {{ if .success }}
+  <p class="success">{{ .success }}</p>
+  {{ end }}
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Assign</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{ range .tickets }}
+    <tr>
+      <td>{{ .ID }}</td>
+      <td>{{ .Title }}</td>
+      <td>{{ .Priority }}</td>
+      <td>{{ .Status }}</td>
+      <td><a href="/admin/tickets/{{ .ID }}/assign">Assign</a></td>
+    </tr>
+    {{ else }}
+    <tr><td colspan="5">All tickets are currently assigned.</td></tr>
+    {{ end }}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

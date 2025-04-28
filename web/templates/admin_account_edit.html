@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Account</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<header>
+  <div><strong>RyanForce Admin</strong></div>
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/admin/accounts">Back to Accounts</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<main role="main" class="container">
+  <h2>Edit Account: {{ .account.Name }}</h2>
+
+  <form action="/admin/accounts/{{ .account.ID }}" method="POST">
+    <label for="name">Name:</label>
+    <input id="name" name="Name" type="text" value="{{ .account.Name }}" required>
+
+    <label for="domain">Domain:</label>
+    <input id="domain" name="Domain" type="text" value="{{ .account.Domain }}">
+
+    <label for="address">Address:</label>
+    <input id="address" name="Address" type="text" value="{{ .account.Address }}">
+
+    <label for="notes">Notes:</label>
+    <textarea id="notes" name="Notes">{{ .account.Notes }}</textarea>
+
+    <button type="submit">Save Changes</button>
+  </form>
+</main>
+
+</body>
+</html>

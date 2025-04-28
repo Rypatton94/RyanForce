@@ -1,0 +1,53 @@
+WARN: 2025/04/19 18:07:47 logger.go:74: [Test] Warning log written
+WARN: 2025/04/19 19:07:05 session.go:46: [Session] No session file found.
+WARN: 2025/04/19 19:07:29 maintenance.go:14: [Maintenance] Admin initiated full database wipe.
+WARN: 2025/04/19 19:07:29 cli.go:754: [ClearDB] Admin 1 wiped database
+WARN: 2025/04/19 19:07:50 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/19 19:07:50 session.go:46: [Session] No session file found.
+WARN: 2025/04/19 19:08:08 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/19 19:08:08 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 11:07:59 session.go:59: [Session] Invalid or expired JWT, clearing session.
+WARN: 2025/04/21 11:08:08 auth.go:44: [Auth] Login failed for unknown email: admin123@example.com
+WARN: 2025/04/21 11:08:08 cli.go:113: [Login] Attempt 1 failed for admin123@example.com
+WARN: 2025/04/21 11:09:15 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 11:10:00 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/21 11:10:01 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 14:34:55 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 14:35:24 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 14:35:58 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 14:36:28 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 14:36:49 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 15:13:20 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 18:06:07 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/21 18:06:18 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 21:09:17 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/21 22:21:47 auth.go:74: [Login] Failed login: user not found — adminasdf
+WARN: 2025/04/21 22:21:47 web.go:29: [WebUI] Login failed for adminasdf from IP: ::1
+WARN: 2025/04/21 22:22:40 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 22:25:51 cli.go:174: [Password Entry] Mismatched password confirmation
+WARN: 2025/04/21 22:27:57 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/21 22:43:22 session.go:46: [Session] No session file found.
+WARN: 2025/04/21 22:43:43 auth.go:53: [Auth] Invalid password for user: client@example.com
+WARN: 2025/04/21 22:43:43 cli.go:116: [Login] Attempt 1 failed for client@example.com
+WARN: 2025/04/21 22:44:29 session.go:46: [Session] No session file found.
+WARN: 2025/04/23 21:12:37 session.go:59: [Session] Invalid or expired JWT, clearing session.
+WARN: 2025/04/24 08:31:15 session.go:46: [Session] No session file found.
+WARN: 2025/04/24 08:31:24 auth.go:48: [Auth] Login failed for unknown email: admin@example.coom
+WARN: 2025/04/24 08:31:24 cli.go:116: [Login] Attempt 1 failed for admin@example.coom
+WARN: 2025/04/24 10:36:07 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/24 12:14:14 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/24 14:31:02 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/24 15:13:54 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/26 14:33:11 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/26 14:57:03 session.go:46: [Session] No session file found.
+WARN: 2025/04/26 14:58:56 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/26 14:59:32 session.go:46: [Session] No session file found.
+WARN: 2025/04/26 15:05:14 session.go:46: [Session] No session file found.
+WARN: 2025/04/26 16:02:31 session.go:46: [Session] No session file found.
+WARN: 2025/04/26 16:08:35 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/26 16:09:10 session.go:46: [Session] No session file found.
+WARN: 2025/04/26 16:10:11 session.go:46: [Session] No session file found.
+WARN: 2025/04/26 16:21:01 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/26 16:21:43 ticket.go:537: [TicketWebUI] Missing Authorization header
+WARN: 2025/04/27 10:53:36 seed.go:52: [Seed] No users found. Seeding demo users.
+WARN: 2025/04/27 18:14:42 session.go:46: [Session] No session file found.

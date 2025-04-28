@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ticket #{{ .Ticket.ID }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<header>
+  <div><strong>RyanForce</strong></div>
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Ticket #{{ .Ticket.ID }} — {{ .Ticket.Title }}</h2>
+  <p><strong>Priority:</strong> {{ .Ticket.Priority }}</p>
+  <p><strong>Status:</strong> {{ .Ticket.Status }}</p>
+  <p><strong>Required Skills:</strong>
+    {{ if .Skills }}
+    {{ range .Skills }}
+    <span class="tag">{{ . }}</span>
+    {{ end }}
+    {{ else }}
+    <em>None</em>
+    {{ end }}
+  </p>
+  <p><strong>Description:</strong> {{ .Ticket.Description }}</p>
+
+  <hr>
+
+  {{ if .Flash }}
+  <div class="flash-message success">{{ .Flash }}</div>
+  {{ end }}
+
+  <h3>Comments</h3>
+  <div class="comments">
+    {{ range .Comments }}
+    <div class="comment" id="comment-{{ .ID }}">
+      <p><strong>{{ .AuthorEmail }}</strong> @ {{ .CreatedAt.Format "Jan 2, 2006 3:04PM" }}</p>
+
+      <div id="comment-content-{{ .ID }}">
+        <p class="content">{{ .Content }}</p>
+      </div>
+
+      {{ if .CanEdit }}
+      <form class="edit-form" id="edit-form-{{ .ID }}" action="/comments/{{ .ID }}/update" method="POST" style="display: none;">
+        <textarea name="content" maxlength="1000" class="edit-textarea" required oninput="updateEditCharCount('{{ .ID }}')">{{ .Content }}</textarea>
+        <small class="char-count" id="edit-char-count-{{ .ID }}">0 / 1000</small><br>
+        <button type="submit">Save</button>
+        <button type="button" onclick="cancelEdit('{{ .ID }}')">Cancel</button>
+      </form>
+
+      <div class="comment-controls">
+        <button type="button" onclick="startEdit('{{ .ID }}')">Edit</button>
+        <form action="/comments/{{ .ID }}/delete" method="POST" style="display:inline;">
+          <button type="submit" onclick="return confirm('Delete this comment?');">Delete</button>
+        </form>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+
+  <h4>Add a Comment</h4>
+  <form class="comment-form" action="/tickets/{{ .Ticket.ID }}/comments" method="POST">
+    <textarea name="content" rows="4" placeholder="Enter your comment..." required maxlength="1000" oninput="updateCharCount(this)"></textarea>
+    <small id="charCount">0 / 1000</small><br>
+    <button type="submit">Submit Comment</button>
+  </form>
+</div>
+
+<script>
+  function updateCharCount(el) {
+    document.getElementById("charCount").innerText = `${el.value.length} / 1000`;
+  }
+
+  function updateEditCharCount(commentID) {
+    const textarea = document.querySelector(`#edit-form-${commentID} textarea`);
+    const countLabel = document.getElementById(`edit-char-count-${commentID}`);
+    if (textarea && countLabel) {
+      countLabel.innerText = `${textarea.value.length} / 1000`;
+    }
+  }
+
+  function startEdit(commentID) {
+    document.getElementById(`edit-form-${commentID}`).style.display = 'block';
+    document.getElementById(`comment-content-${commentID}`).style.display = 'none';
+    updateEditCharCount(commentID);
+  }
+
+  function cancelEdit(commentID) {
+    document.getElementById(`edit-form-${commentID}`).style.display = 'none';
+    document.getElementById(`comment-content-${commentID}`).style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RyanForce Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<div class="form-box">
+    <h1>Login to RyanForce</h1>
+
+    {{ if .error }}
+    <p class="error">{{ .error }}</p>
+    {{ end }}
+
+    <form action="/login" method="POST">
+        <label>Email:</label>
+        <input type="text" name="email" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

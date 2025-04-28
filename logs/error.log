@@ -1,0 +1,5 @@
+ERROR: 2025/04/19 18:07:47 logger.go:75: [Test] Error log written: this is a test error
+ERROR: 2025/04/21 18:32:24 tickets.go:152: [WebUI] Failed to save comment: no such table: comments
+ERROR: 2025/04/21 21:27:31 tickets.go:153: [WebUI] Failed to save comment: no such table: comments
+ERROR: 2025/04/21 22:23:12 main.go:89: [CLI] Failed to read input: EOF
+ERROR: 2025/04/24 15:14:39 tickets.go:201: [CreateTicket] Failed to create ticket: row value misused

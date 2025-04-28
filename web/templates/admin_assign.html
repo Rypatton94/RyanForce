@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assign Technician</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <style>
+    .perfect-match {
+      background-color: #d4edda; /* light green */
+      font-weight: bold;
+    }
+    .tag {
+      display: inline-block;
+      background-color: #eee;
+      border-radius: 3px;
+      padding: 2px 5px;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div><strong>RyanForce Admin</strong></div>
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Assign Technician to Ticket #{{ .ticket.ID }} - {{ .ticket.Title }}</h2>
+
+  <p><strong>Required Skills:</strong><br>
+    {{ if .needed }}
+    {{ range .needed }}
+    <span class="tag">{{ . }}</span>
+    {{ end }}
+    {{ else }}
+    <em>None specified</em>
+    {{ end }}
+  </p>
+
+  {{ if .matches }}
+  <table>
+    <thead>
+    <tr>
+      <th>Technician</th>
+      <th>Email</th>
+      <th>Skills Matched</th>
+      <th>Assign</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{ range .matches }}
+    <tr {{ if eq .Score $.totalSkillsNeeded }}class="perfect-match"{{ end }}>
+      <td>{{ .Tech.Name }}</td>
+      <td>{{ .Tech.Email }}</td>
+      <td>{{ .Score }} / {{ $.totalSkillsNeeded }}</td>
+      <td>
+        <form action="/admin/tickets/{{ $.ticket.ID }}/assign/{{ .Tech.ID }}" method="POST" style="margin:0;">
+          <button type="submit">Assign</button>
+        </form>
+      </td>
+    </tr>
+    {{ end }}
+    </tbody>
+  </table>
+  {{ else }}
+  <p>No matching technicians found.</p>
+  {{ end }}
+
+</div>
+
+</body>
+</html>

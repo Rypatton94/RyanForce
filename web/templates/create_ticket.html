@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Support Ticket</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<header>
+  <div><strong>RyanForce Client Dashboard</strong></div>
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<div class="form-box">
+  <h2>Create a New Ticket</h2>
+
+  <form action="/tickets/create" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required placeholder="Short description of the problem">
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="5" required placeholder="Detailed description of the issue..."></textarea>
+
+    <label for="priority">Priority:</label>
+    <select id="priority" name="priority" required>
+      <option value="Low">Low</option>
+      <option value="Medium" selected>Medium</option>
+      <option value="High">High</option>
+      <option value="Critical">Critical</option>
+    </select>
+
+    <label>Required Skills (up to 5):</label>
+    <div id="skillsContainer">
+      <input type="text" name="skillsNeeded" placeholder="e.g., Networking">
+    </div>
+    <button type="button" onclick="addSkillInput()">+ Add Another Skill</button>
+
+    <br><br>
+    <button type="submit">Submit Ticket</button>
+  </form>
+</div>
+
+<script>
+  function addSkillInput() {
+    const container = document.getElementById("skillsContainer");
+    if (container.querySelectorAll('input[name="skillsNeeded"]').length < 5) {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.name = "skillsNeeded";
+      input.placeholder = "e.g., Linux Administration";
+      container.appendChild(input);
+    }
+  }
+</script>
+
+</body>
+</html>

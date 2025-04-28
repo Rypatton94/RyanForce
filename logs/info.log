@@ -1,0 +1,534 @@
+INFO: 2025/04/19 18:07:47 logger.go:73: [Test] Info log written
+INFO: 2025/04/19 18:07:47 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/19 18:07:47 main.go:50: [Startup] Resuming session
+INFO: 2025/04/19 18:07:47 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/19 18:07:47 reporting.go:72: [Report] Found 1 unassigned tickets
+INFO: 2025/04/19 18:07:47 cli.go:138: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/19 18:07:47 main.go:63: [CLI] Waiting for user input
+INFO: 2025/04/19 19:05:54 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/19 19:05:54 main.go:49: [Startup] Resuming session
+INFO: 2025/04/19 19:05:54 ticket.go:61: [Ticket] 0 tickets listed for user 4 (tech)
+INFO: 2025/04/19 19:05:54 cli.go:142: [Dashboard] Displayed for user 4 (tech)
+INFO: 2025/04/19 19:05:54 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/19 19:06:34 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/19 19:06:34 main.go:49: [Startup] Resuming session
+INFO: 2025/04/19 19:06:34 ticket.go:61: [Ticket] 0 tickets listed for user 4 (tech)
+INFO: 2025/04/19 19:06:34 cli.go:142: [Dashboard] Displayed for user 4 (tech)
+INFO: 2025/04/19 19:06:34 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/19 19:06:42 main.go:73: [CLI] Session manually closed by user
+INFO: 2025/04/19 19:06:42 session.go:76: [Session] Session cleared.
+INFO: 2025/04/19 19:07:19 auth.go:61: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/19 19:07:19 cli.go:108: [Login] Successful login for admin@example.com
+INFO: 2025/04/19 19:07:19 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/19 19:07:19 main.go:32: [Startup] New session saved after login
+INFO: 2025/04/19 19:07:19 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/19 19:07:19 reporting.go:72: [Report] Found 1 unassigned tickets
+INFO: 2025/04/19 19:07:19 cli.go:142: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/19 19:07:19 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/19 19:07:23 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/19 19:07:23 cli.go:721: [Help] Help viewed by user 1 (admin)
+INFO: 2025/04/19 19:07:23 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/19 19:07:27 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/19 19:07:29 maintenance.go:28: [Maintenance] Users and tickets successfully deleted.
+INFO: 2025/04/19 19:07:29 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/19 19:07:36 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/19 19:07:36 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/19 19:07:42 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/19 19:07:42 cli.go:259: [Whoami] Session viewed by user 1 (admin)
+INFO: 2025/04/19 19:07:42 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/19 19:07:45 main.go:73: [CLI] Session manually closed by user
+INFO: 2025/04/19 19:07:45 session.go:76: [Session] Session cleared.
+INFO: 2025/04/19 19:07:50 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/19 19:07:50 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/19 19:07:50 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/19 19:08:08 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/19 19:08:08 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/19 19:08:08 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/19 19:08:19 auth.go:61: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/19 19:08:19 cli.go:108: [Login] Successful login for admin@example.com
+INFO: 2025/04/19 19:08:19 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/19 19:08:19 main.go:32: [Startup] New session saved after login
+INFO: 2025/04/19 19:08:19 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/19 19:08:19 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/19 19:08:19 cli.go:142: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/19 19:08:19 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/19 19:08:26 main.go:73: [CLI] Session manually closed by user
+INFO: 2025/04/19 19:08:26 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 11:07:59 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 11:10:00 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/21 11:10:00 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/21 11:10:01 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/21 11:11:31 auth.go:61: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/21 11:11:31 cli.go:108: [Login] Successful login for admin@example.com
+INFO: 2025/04/21 11:11:31 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 11:11:31 main.go:32: [Startup] New session saved after login
+INFO: 2025/04/21 11:11:31 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/21 11:11:31 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/21 11:11:31 cli.go:142: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/21 11:11:31 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:34:48 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 14:34:48 main.go:49: [Startup] Resuming session
+INFO: 2025/04/21 14:34:48 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/21 14:34:48 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/21 14:34:48 cli.go:142: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/21 14:34:48 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:34:52 main.go:73: [CLI] Session manually closed by user
+INFO: 2025/04/21 14:34:52 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 14:35:07 auth.go:64: [Auth] User logged in: client@example.com (client)
+INFO: 2025/04/21 14:35:07 cli.go:108: [Login] Successful login for client@example.com
+INFO: 2025/04/21 14:35:07 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 14:35:07 main.go:32: [Startup] New session saved after login
+INFO: 2025/04/21 14:35:07 ticket.go:63: [Ticket] 0 tickets listed for user 3 (client)
+INFO: 2025/04/21 14:35:07 cli.go:142: [Dashboard] Displayed for user 3 (client)
+INFO: 2025/04/21 14:35:07 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:35:12 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 14:35:17 ticket.go:29: [Ticket] Created by user 3 — ID: 1
+INFO: 2025/04/21 14:35:17 cli.go:385: [CreateTicket] New ticket created by user 3
+INFO: 2025/04/21 14:35:17 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:35:21 main.go:73: [CLI] Session manually closed by user
+INFO: 2025/04/21 14:35:21 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 14:35:33 auth.go:64: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/21 14:35:33 cli.go:108: [Login] Successful login for admin@example.com
+INFO: 2025/04/21 14:35:33 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 14:35:33 main.go:32: [Startup] New session saved after login
+INFO: 2025/04/21 14:35:33 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/21 14:35:33 reporting.go:72: [Report] Found 1 unassigned tickets
+INFO: 2025/04/21 14:35:33 cli.go:142: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/21 14:35:33 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:35:36 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 14:35:40 ticket.go:129: [Ticket] Ticket 1 assigned to tech 1
+INFO: 2025/04/21 14:35:40 cli.go:513: [AssignTicket] Admin 1 assigned ticket 1 to tech 1
+INFO: 2025/04/21 14:35:40 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:35:45 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 14:35:45 ticket.go:63: [Ticket] 1 tickets listed for user 1 (admin)
+INFO: 2025/04/21 14:35:45 cli.go:472: [ListTickets] Tickets listed for user 1 (admin)
+INFO: 2025/04/21 14:35:45 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:35:55 main.go:73: [CLI] Session manually closed by user
+INFO: 2025/04/21 14:35:55 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 14:36:06 auth.go:64: [Auth] User logged in: tech@example.com (tech)
+INFO: 2025/04/21 14:36:06 cli.go:108: [Login] Successful login for tech@example.com
+INFO: 2025/04/21 14:36:06 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 14:36:06 main.go:32: [Startup] New session saved after login
+INFO: 2025/04/21 14:36:06 ticket.go:63: [Ticket] 0 tickets listed for user 2 (tech)
+INFO: 2025/04/21 14:36:06 cli.go:142: [Dashboard] Displayed for user 2 (tech)
+INFO: 2025/04/21 14:36:06 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:36:20 main.go:73: [CLI] Session manually closed by user
+INFO: 2025/04/21 14:36:20 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 14:36:35 auth.go:64: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/21 14:36:35 cli.go:108: [Login] Successful login for admin@example.com
+INFO: 2025/04/21 14:36:35 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 14:36:35 main.go:32: [Startup] New session saved after login
+INFO: 2025/04/21 14:36:35 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/21 14:36:35 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/21 14:36:35 cli.go:142: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/21 14:36:35 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:36:38 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 14:36:40 ticket.go:129: [Ticket] Ticket 1 assigned to tech 2
+INFO: 2025/04/21 14:36:40 cli.go:513: [AssignTicket] Admin 1 assigned ticket 1 to tech 2
+INFO: 2025/04/21 14:36:40 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:36:44 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 14:36:44 ticket.go:63: [Ticket] 1 tickets listed for user 1 (admin)
+INFO: 2025/04/21 14:36:44 cli.go:472: [ListTickets] Tickets listed for user 1 (admin)
+INFO: 2025/04/21 14:36:44 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:36:47 main.go:73: [CLI] Session manually closed by user
+INFO: 2025/04/21 14:36:47 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 14:36:57 auth.go:64: [Auth] User logged in: tech@example.com (tech)
+INFO: 2025/04/21 14:36:57 cli.go:108: [Login] Successful login for tech@example.com
+INFO: 2025/04/21 14:36:57 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 14:36:57 main.go:32: [Startup] New session saved after login
+INFO: 2025/04/21 14:36:57 ticket.go:63: [Ticket] 1 tickets listed for user 2 (tech)
+INFO: 2025/04/21 14:36:57 cli.go:142: [Dashboard] Displayed for user 2 (tech)
+INFO: 2025/04/21 14:36:57 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 14:37:59 main.go:73: [CLI] Session manually closed by user
+INFO: 2025/04/21 14:37:59 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 15:13:32 auth.go:64: [Auth] User logged in: client@example.com (client)
+INFO: 2025/04/21 15:13:32 cli.go:108: [Login] Successful login for client@example.com
+INFO: 2025/04/21 15:13:32 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 15:13:32 main.go:32: [Startup] New session saved after login
+INFO: 2025/04/21 15:13:32 ticket.go:63: [Ticket] 1 tickets listed for user 3 (client)
+INFO: 2025/04/21 15:13:32 cli.go:142: [Dashboard] Displayed for user 3 (client)
+INFO: 2025/04/21 15:13:32 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 15:15:39 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 15:15:39 main.go:49: [Startup] Resuming session
+INFO: 2025/04/21 15:15:39 ticket.go:67: [Ticket] 1 tickets listed for user 3 (client)
+INFO: 2025/04/21 15:15:39 cli.go:142: [Dashboard] Displayed for user 3 (client)
+INFO: 2025/04/21 15:15:39 main.go:62: [CLI] Waiting for user input
+INFO: 2025/04/21 18:06:07 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/21 18:06:07 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/21 18:06:07 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/21 18:06:07 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 18:06:07 main.go:72: [Startup] Resuming session
+INFO: 2025/04/21 18:06:07 ticket.go:58: [Ticket] 0 tickets listed for user 3 (client)
+INFO: 2025/04/21 18:06:07 cli.go:142: [Dashboard] Displayed for user 3 (client)
+INFO: 2025/04/21 18:06:07 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 18:06:15 main.go:96: [CLI] Session manually closed by user
+INFO: 2025/04/21 18:06:15 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 18:11:56 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 18:11:56 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 18:11:56 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 18:19:10 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 18:19:17 web.go:25: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/21 18:19:17 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/21 18:19:17 web.go:34: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/21 18:19:32 web.go:81: [Logout] User logged out: tech
+INFO: 2025/04/21 18:19:40 web.go:25: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/21 18:19:40 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/21 18:19:40 web.go:34: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/21 18:20:16 web.go:81: [Logout] User logged out: client
+INFO: 2025/04/21 18:20:26 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 18:20:26 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 18:20:26 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 18:27:42 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 18:31:42 web.go:25: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/21 18:31:42 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/21 18:31:42 web.go:34: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/21 18:31:55 web.go:81: [Logout] User logged out: client
+INFO: 2025/04/21 18:32:03 web.go:25: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/21 18:32:03 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/21 18:32:03 web.go:34: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/21 18:32:36 web.go:81: [Logout] User logged out: tech
+INFO: 2025/04/21 18:32:45 web.go:25: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/21 18:32:45 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/21 18:32:45 web.go:34: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/21 21:09:17 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/21 21:09:17 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/21 21:09:17 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/21 21:25:03 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 21:25:03 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 21:25:03 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 21:25:22 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 21:25:31 web.go:25: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/21 21:25:31 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/21 21:25:31 web.go:34: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/21 21:26:18 web.go:81: [Logout] User logged out: client
+INFO: 2025/04/21 21:26:27 web.go:25: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/21 21:26:27 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/21 21:26:27 web.go:34: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/21 21:26:40 web.go:81: [Logout] User logged out: tech
+INFO: 2025/04/21 21:26:49 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 21:26:49 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 21:26:49 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 21:27:07 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 21:27:12 web.go:25: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/21 21:27:12 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/21 21:27:12 web.go:34: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/21 22:21:15 web.go:81: [Logout] User logged out: tech
+INFO: 2025/04/21 22:21:47 web.go:25: [WebUI] Login attempt from IP: ::1 — adminasdf
+INFO: 2025/04/21 22:22:06 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 22:22:06 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 22:22:06 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 22:22:48 auth.go:63: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/21 22:22:48 cli.go:111: [Login] Successful login for admin@example.com
+INFO: 2025/04/21 22:22:48 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 22:22:48 main.go:55: [Startup] New session saved after login
+INFO: 2025/04/21 22:22:48 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/21 22:22:48 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/21 22:22:48 cli.go:145: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/21 22:22:48 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:22:57 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 22:22:57 cli.go:776: [Help] Help viewed by user 1 (admin)
+INFO: 2025/04/21 22:22:57 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:23:08 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:23:12 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:23:19 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 22:23:19 main.go:72: [Startup] Resuming session
+INFO: 2025/04/21 22:23:19 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/21 22:23:19 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/21 22:23:19 cli.go:145: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/21 22:23:19 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:23:24 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 22:23:24 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:23:57 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 22:24:01 adminUsers.go:98: [Audit] Admin 1 attempting to delete user ID 3
+INFO: 2025/04/21 22:24:01 adminUsers.go:45: [Admin] Deleted user ID 3 (client@example.com)
+INFO: 2025/04/21 22:24:01 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:24:04 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 22:24:04 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:25:12 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 22:25:23 auth.go:168: [AdminReset] Admin 1 reset password for tech@example.com
+INFO: 2025/04/21 22:25:23 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:25:27 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 22:25:36 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:25:41 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 22:25:56 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:27:03 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 22:27:57 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/21 22:27:58 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/21 22:27:58 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/21 22:28:23 web.go:25: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/21 22:28:23 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/21 22:28:23 web.go:34: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/21 22:29:38 web.go:81: [Logout] User logged out: client
+INFO: 2025/04/21 22:29:41 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 22:29:41 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 22:29:41 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 22:30:40 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 22:30:42 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 22:30:42 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 22:30:42 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 22:30:56 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 22:30:57 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 22:30:57 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 22:30:57 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 22:30:59 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 22:31:00 web.go:25: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/21 22:31:00 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/21 22:31:00 web.go:34: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/21 22:31:08 web.go:81: [Logout] User logged out: client
+INFO: 2025/04/21 22:31:11 web.go:25: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/21 22:31:11 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/21 22:31:11 web.go:34: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/21 22:42:06 web.go:81: [Logout] User logged out: tech
+INFO: 2025/04/21 22:42:08 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 22:42:08 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 22:42:08 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 22:43:01 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/21 22:43:01 main.go:72: [Startup] Resuming session
+INFO: 2025/04/21 22:43:01 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/21 22:43:01 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/21 22:43:01 cli.go:145: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/21 22:43:01 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:43:11 main.go:96: [CLI] Session manually closed by user
+INFO: 2025/04/21 22:43:11 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 22:43:52 auth.go:63: [Auth] User logged in: client@example.com (client)
+INFO: 2025/04/21 22:43:52 cli.go:111: [Login] Successful login for client@example.com
+INFO: 2025/04/21 22:43:52 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 22:43:52 main.go:55: [Startup] New session saved after login
+INFO: 2025/04/21 22:43:52 ticket.go:59: [Ticket] 1 tickets listed for user 3 (client)
+INFO: 2025/04/21 22:43:52 cli.go:145: [Dashboard] Displayed for user 3 (client)
+INFO: 2025/04/21 22:43:52 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:44:24 main.go:96: [CLI] Session manually closed by user
+INFO: 2025/04/21 22:44:24 session.go:76: [Session] Session cleared.
+INFO: 2025/04/21 22:44:41 auth.go:63: [Auth] User logged in: client@example.com (client)
+INFO: 2025/04/21 22:44:41 cli.go:111: [Login] Successful login for client@example.com
+INFO: 2025/04/21 22:44:41 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/21 22:44:41 main.go:55: [Startup] New session saved after login
+INFO: 2025/04/21 22:44:41 ticket.go:59: [Ticket] 1 tickets listed for user 3 (client)
+INFO: 2025/04/21 22:44:41 cli.go:145: [Dashboard] Displayed for user 3 (client)
+INFO: 2025/04/21 22:44:41 main.go:85: [CLI] Waiting for user input
+INFO: 2025/04/21 22:46:20 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 22:46:24 web.go:25: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/21 22:46:24 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/21 22:46:24 web.go:34: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/21 22:56:58 web.go:81: [Logout] User logged out: client
+INFO: 2025/04/21 22:57:01 web.go:25: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/21 22:57:01 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/21 22:57:01 web.go:34: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/21 23:02:13 web.go:81: [Logout] User logged out: client
+INFO: 2025/04/21 23:02:16 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/21 23:02:16 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/21 23:02:16 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/21 23:02:24 web.go:81: [Logout] User logged out: admin
+INFO: 2025/04/21 23:03:08 web.go:25: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/21 23:03:08 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/21 23:03:08 web.go:34: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/23 21:12:37 session.go:76: [Session] Session cleared.
+INFO: 2025/04/23 21:14:58 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/23 21:14:58 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/23 21:14:58 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/24 08:31:34 auth.go:63: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/24 08:31:34 cli.go:111: [Login] Successful login for admin@example.com
+INFO: 2025/04/24 08:31:34 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/24 08:31:34 main.go:68: [Startup] New session saved after login
+INFO: 2025/04/24 08:31:34 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/24 08:31:34 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/24 08:31:34 cli.go:145: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/24 08:31:34 main.go:98: [CLI] Waiting for user input
+INFO: 2025/04/24 08:31:41 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/24 08:31:41 ticket.go:59: [Ticket] 1 tickets listed for user 1 (admin)
+INFO: 2025/04/24 08:31:41 cli.go:463: [ListTickets] Tickets listed for user 1 (admin)
+INFO: 2025/04/24 08:31:41 main.go:98: [CLI] Waiting for user input
+INFO: 2025/04/24 08:31:45 main.go:109: [CLI] Session manually closed by user
+INFO: 2025/04/24 08:31:45 session.go:76: [Session] Session cleared.
+INFO: 2025/04/24 08:53:06 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/24 08:53:06 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/24 08:53:06 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/24 09:55:08 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/24 09:55:08 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/24 09:55:08 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/24 10:36:07 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/24 10:36:07 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/24 10:36:07 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/24 10:36:20 web.go:81: [Logout] User logged out: admin@example.com
+INFO: 2025/04/24 10:36:22 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/24 10:36:22 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/24 10:36:22 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/24 11:38:06 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/24 11:38:06 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/24 11:38:06 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/24 12:14:14 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/24 12:14:14 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/24 12:14:14 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/24 14:05:12 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/24 14:05:12 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/24 14:05:12 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/24 14:05:26 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/24 14:06:32 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/24 14:06:32 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/24 14:06:32 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/24 14:31:02 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/24 14:31:02 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/24 14:31:02 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/24 14:38:31 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/24 14:38:33 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/24 14:38:33 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/24 14:38:33 web.go:33: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/24 15:05:11 web.go:80: [Logout] User logged out: tech@example.com
+INFO: 2025/04/24 15:05:13 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/24 15:05:13 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/24 15:05:13 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/24 15:06:09 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/24 15:06:11 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/24 15:06:11 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/24 15:06:11 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/24 15:06:39 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/24 15:06:41 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/24 15:06:41 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/24 15:06:41 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/24 15:06:51 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/24 15:06:53 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/24 15:06:53 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/24 15:06:53 web.go:33: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/24 15:07:05 web.go:80: [Logout] User logged out: tech@example.com
+INFO: 2025/04/24 15:07:07 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/24 15:07:08 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/24 15:07:08 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/24 15:07:13 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/24 15:07:15 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/24 15:07:15 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/24 15:07:15 web.go:33: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/24 15:13:54 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/24 15:13:54 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/24 15:13:54 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/24 15:14:13 web.go:80: [Logout] User logged out: tech@example.com
+INFO: 2025/04/24 15:14:15 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/24 15:14:15 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/24 15:14:15 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/24 15:38:47 tickets.go:218: [CreateTicket] Ticket #1 created by user 3
+INFO: 2025/04/24 15:38:50 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/24 15:38:53 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/24 15:38:53 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/24 15:38:53 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/26 13:41:54 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/26 13:41:54 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/26 13:41:54 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/26 14:33:11 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/26 14:33:12 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/26 14:33:12 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/26 14:35:08 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/26 14:35:10 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/26 14:35:10 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/26 14:35:10 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/26 14:35:37 tickets.go:229: [CreateTicket] Ticket #1 created by user 3
+INFO: 2025/04/26 14:35:42 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/26 14:35:46 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/26 14:35:46 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/26 14:35:46 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/26 14:46:39 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/26 14:46:42 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/26 14:46:42 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/26 14:46:42 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/26 14:47:18 tickets.go:229: [CreateTicket] Ticket #2 created by user 3
+INFO: 2025/04/26 14:58:56 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/26 14:58:56 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/26 14:58:56 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/26 14:59:30 tickets.go:229: [CreateTicket] Ticket #1 created by user 3
+INFO: 2025/04/26 16:01:31 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/26 16:01:31 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/26 16:01:31 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/26 16:02:25 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/26 16:02:27 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/26 16:02:27 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/26 16:02:27 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/26 16:08:35 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/26 16:08:35 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/26 16:08:35 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/26 16:08:47 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/26 16:08:49 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/26 16:08:49 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/26 16:08:49 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/26 16:09:08 tickets.go:229: [CreateTicket] Ticket #1 created by user 3
+INFO: 2025/04/26 16:09:14 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/26 16:09:14 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/26 16:09:14 web.go:33: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/26 16:09:18 web.go:80: [Logout] User logged out: tech@example.com
+INFO: 2025/04/26 16:09:19 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/26 16:09:19 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/26 16:09:19 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/26 16:09:22 ticket.go:794: [TicketAdmin] Found 0 matching technicians for ticket 1
+INFO: 2025/04/26 16:09:43 techs.go:144: [AdminTech] Technician tech@example.com updated successfully
+INFO: 2025/04/26 16:09:48 ticket.go:794: [TicketAdmin] Found 1 matching technicians for ticket 1
+INFO: 2025/04/26 16:09:52 ticket.go:833: [TicketAdmin] Ticket 1 assigned to tech 2
+INFO: 2025/04/26 16:09:59 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/26 16:10:05 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/26 16:10:05 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/26 16:10:05 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/26 16:10:07 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/26 16:10:08 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/26 16:10:09 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/26 16:10:09 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/26 16:10:13 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/26 16:10:13 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/26 16:10:13 web.go:33: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/26 16:21:01 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/26 16:21:01 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/26 16:21:01 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/26 16:21:13 web.go:80: [Logout] User logged out: tech@example.com
+INFO: 2025/04/26 16:21:17 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/26 16:21:17 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/26 16:21:17 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/26 16:21:19 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/26 16:21:21 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/26 16:21:21 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/26 16:21:21 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/26 16:21:22 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/26 16:21:24 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/26 16:21:24 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/26 16:21:24 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/26 16:21:41 tickets.go:229: [CreateTicket] Ticket #1 created by user 3
+INFO: 2025/04/27 10:47:07 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/27 10:47:07 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/27 10:47:07 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/27 10:53:36 seed.go:40: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/27 10:53:36 seed.go:40: [Seed] User created: tech@example.com (tech)
+INFO: 2025/04/27 10:53:36 seed.go:40: [Seed] User created: client@example.com (client)
+INFO: 2025/04/27 10:56:07 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/27 10:56:10 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/27 10:56:10 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/27 10:56:10 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/27 10:56:39 tickets.go:349: [CreateTicket] Ticket #1 created by user 3
+INFO: 2025/04/27 10:57:00 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/27 10:57:09 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/27 10:57:09 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/27 10:57:09 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/27 10:57:26 techs.go:144: [AdminTech] Technician tech@example.com updated successfully
+INFO: 2025/04/27 10:57:36 ticket.go:741: [TicketAdmin] Found 1 matching technicians for ticket 1
+INFO: 2025/04/27 10:57:38 ticket.go:780: [TicketAdmin] Ticket 1 assigned to tech 2
+INFO: 2025/04/27 10:58:09 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/27 10:58:12 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/27 10:58:12 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/27 10:58:12 web.go:33: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/27 10:58:24 web.go:80: [Logout] User logged out: tech@example.com
+INFO: 2025/04/27 10:58:28 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/27 10:58:28 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/27 10:58:28 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/27 10:59:17 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/27 10:59:20 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/27 10:59:20 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/27 10:59:20 web.go:33: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/27 11:05:08 web.go:80: [Logout] User logged out: tech@example.com
+INFO: 2025/04/27 11:07:30 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/27 11:07:30 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/27 11:07:30 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/27 11:07:49 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/27 11:07:52 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/27 11:07:52 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/27 11:07:52 web.go:33: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/27 11:08:14 web.go:80: [Logout] User logged out: tech@example.com
+INFO: 2025/04/27 11:08:15 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/27 11:08:16 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/27 11:08:16 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1
+INFO: 2025/04/27 11:19:07 web.go:80: [Logout] User logged out: client@example.com
+INFO: 2025/04/27 11:19:26 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/27 11:19:26 auth.go:107: [Login] Successful login — client@example.com
+INFO: 2025/04/27 11:19:26 web.go:33: [WebUI] Login successful for client@example.com from IP: ::1

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Clients</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+  <div><strong>RyanForce Admin</strong></div>
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/admin/clients">Manage Clients</a>
+    <a href="/admin/techs">Manage Techs</a>
+    <a href="/admin/accounts">Manage Accounts</a>
+    <a href="/admin/reports">View Reports</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Client Accounts</h2>
+
+  <a href="/admin/clients/new" class="button">+ Add New Client</a>
+
+  <!-- FILTER FORM -->
+  <form method="GET" action="/admin/clients" style="margin: 1rem 0;">
+    <label for="account">Filter by Account:</label>
+    <select name="account" id="account">
+      <option value="">-- All --</option>
+      {{ range .accounts }}
+      {{ if eq .ID $.selectedAccountID }}
+      <option value="{{ .ID }}" selected>{{ .Name }}</option>
+      {{ else }}
+      <option value="{{ .ID }}">{{ .Name }}</option>
+      {{ end }}
+      {{ end }}
+    </select>
+    <button type="submit">Filter</button>
+  </form>
+
+  <!-- CLIENT TABLE -->
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Account</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{ range .clients }}
+    <tr>
+      <td>{{ .ID }}</td>
+      <td>{{ .Email }}</td>
+      <td>{{ if .Account }}{{ .Account.Name }}{{ else }}<em>Unassigned</em>{{ end }}</td>
+      <td>
+        <a href="/admin/clients/{{ .ID }}/edit">Edit</a> |
+        <form action="/admin/clients/{{ .ID }}/delete" method="POST" style="display:inline;">
+          <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {{ else }}
+    <tr><td colspan="4">No clients found.</td></tr>
+    {{ end }}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Client</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Add New Client</h2>
+  <form action="/admin/clients" method="POST">
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" name="Email" required>
+
+    <label for="name">Full Name:</label>
+    <input id="name" type="text" name="Name" required>
+
+    <label for="account">Assign to Account:</label>
+    <select name="AccountID" id="account">
+      <option value="">-- None --</option>
+      {{ range .accounts }}
+      <option value="{{ .ID }}">{{ .Name }}</option>
+      {{ end }}
+    </select>
+
+    <label for="password">Password:</label>
+    <input
+            id="password"
+            type="password"
+            name="Password"
+            required
+            minlength="8"
+            maxlength="32"
+            pattern="(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,32}"
+            title="Must be 8–32 characters with a capital letter, number, and special character."
+    >
+
+
+    <button type="submit">Create Client</button>
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unlock User Account</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<div class="form-box">
+  <h1>Unlock User Account</h1>
+
+  {{ if .error }}
+  <p class="error">{{ .error }}</p>
+  {{ end }}
+
+  {{ if .success }}
+  <p class="success">{{ .success }}</p>
+  {{ end }}
+
+  <form action="/admin/unlock" method="POST">
+    <label>User Email:</label>
+    <input type="email" name="email" required>
+    <button type="submit">Unlock Account</button>
+  </form>
+</div>
+
+</body>
+</html>

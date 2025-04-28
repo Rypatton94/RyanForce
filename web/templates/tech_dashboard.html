@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Technician Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<header>
+  <div>
+    <strong>RyanForce Technician Dashboard</strong>
+  </div>
+  <nav>
+    <span>{{ .user }}</span>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Welcome, Technician</h2>
+  <p>Last login: {{ .lastLogin }}</p>
+
+  <h3>Your Tools</h3>
+  <ul>
+    <li><a href="/tickets/tech">View and Update My Tickets</a></li>
+  </ul>
+</div>
+
+</body>
+</html>
