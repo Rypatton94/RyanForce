@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 )
 
 // ClearDatabase deletes all records from the users and tickets tables.
@@ -55,4 +56,9 @@ func ClearDatabase(confirm bool) {
 	fmt.Println("Reseeding demo data...")
 	utils.LogInfo("[Maintenance] Starting reseed of demo data.")
 	SeedDemoData()
+
+	// Add pause and success message after reseeding
+	time.Sleep(500 * time.Millisecond)
+	fmt.Println("\033[32m[✔] Database reseed complete.\033[0m")
+	utils.LogInfo("[Maintenance] Database reseed finished successfully.")
 }
