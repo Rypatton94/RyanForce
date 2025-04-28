@@ -79,14 +79,62 @@ go run main.go
 Run WebUI mode:
 
 ```bash
-set RYANFORCE_MODE=web   # Windows
-export RYANFORCE_MODE=web # Mac/Linux
-go run main.go
+go run main.go web
 ```
 
-If WebUI mode: visit [http://localhost:8080](http://localhost:8080)
+Run and reseed database before starting CLI mode:
+
+```bash
+go run main.go seed
+```
+
+Run and reseed database before starting WebUI mode:
+
+```bash
+go run main.go web seed
+```
+
+- If you include `seed`, RyanForce will wipe and reload demo accounts, techs, clients, and tickets before starting.
+- If you leave it out, it will just start normally without reseeding.
+
+When running WebUI mode, visit [http://localhost:8080](http://localhost:8080)
 
 Log files will show up under `logs/ryanforce.log`
+
+---
+
+## Seeding Demo Data
+
+- When you run the program for the first time, RyanForce automatically seeds the database if no users are found.
+- The seed will create:
+  - One admin account
+  - Several techs with different skill sets
+  - Clients attached to mock companies
+  - A mix of assigned and unassigned support tickets
+- Admins can also manually wipe and reseed the database by using the `clear-db` command in the CLI.
+
+### Seeded User Credentials
+
+- Admin:
+  - Email: `admin@example.com`
+  - Password: `Admin123!`
+- Techs:
+  - Alice Anderson
+    - Email: `alice.tech@example.com`
+    - Password: `Tech123!`
+  - Bob Brown
+    - Email: `bob.tech@example.com`
+    - Password: `Tech123!`
+  - Charlie Clark
+    - Email: `charlie.tech@example.com`
+    - Password: `Tech123!`
+- Clients:
+  - Cindy Client
+    - Email: `cindy.client@acme.com`
+    - Password: `Client123!`
+  - Gary Globex
+    - Email: `gary.client@globex.com`
+    - Password: `Client123!`
 
 ---
 

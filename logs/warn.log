@@ -54,3 +54,44 @@ WARN: 2025/04/27 18:14:42 session.go:46: [Session] No session file found.
 WARN: 2025/04/27 22:50:13 session.go:47: [Session] No session file found.
 WARN: 2025/04/27 22:52:03 session.go:47: [Session] No session file found.
 WARN: 2025/04/27 22:55:37 session.go:47: [Session] No session file found.
+WARN: 2025/04/27 23:23:23 maintenance.go:18: [Maintenance] Admin initiated full database wipe.
+WARN: 2025/04/27 23:24:52 session.go:47: [Session] No session file found.
+WARN: 2025/04/27 23:25:01 auth.go:48: [Auth] Login failed for unknown email: tech@example.com
+WARN: 2025/04/27 23:25:01 cli.go:124: [Login] Attempt 1 failed for tech@example.com
+WARN: 2025/04/27 23:25:12 auth.go:48: [Auth] Login failed for unknown email: tech@example.com
+WARN: 2025/04/27 23:25:12 cli.go:124: [Login] Attempt 2 failed for tech@example.com
+WARN: 2025/04/27 23:32:48 maintenance.go:18: [Maintenance] Admin initiated full database wipe.
+WARN: 2025/04/27 23:40:14 maintenance.go:18: [Maintenance] Admin initiated full database wipe.
+WARN: 2025/04/27 23:40:24 auth.go:74: [Login] Failed login: user not found — tech@example.com
+WARN: 2025/04/27 23:40:24 web.go:28: [WebUI] Login failed for tech@example.com from IP: ::1
+WARN: 2025/04/27 23:40:31 auth.go:74: [Login] Failed login: user not found — client@example.com
+WARN: 2025/04/27 23:40:31 web.go:28: [WebUI] Login failed for client@example.com from IP: ::1
+WARN: 2025/04/27 23:41:10 auth.go:152: [AdminReset] Target user not found: client@example.com
+WARN: 2025/04/27 23:41:10 web.go:152: [AdminReset] Failed password reset for client@example.com
+WARN: 2025/04/27 23:42:19 tickets.go:84: [TicketWebUI] Failed to parse skillsNeeded for ticket 1
+WARN: 2025/04/27 23:42:23 tickets.go:84: [TicketWebUI] Failed to parse skillsNeeded for ticket 1
+WARN: 2025/04/27 23:42:51 tickets.go:84: [TicketWebUI] Failed to parse skillsNeeded for ticket 1
+WARN: 2025/04/27 23:42:59 tickets.go:84: [TicketWebUI] Failed to parse skillsNeeded for ticket 1
+WARN: 2025/04/27 23:43:02 tickets.go:84: [TicketWebUI] Failed to parse skillsNeeded for ticket 1
+WARN: 2025/04/27 23:43:19 tickets.go:84: [TicketWebUI] Failed to parse skillsNeeded for ticket 1
+WARN: 2025/04/27 23:56:10 maintenance.go:18: [Maintenance] Admin initiated full database wipe.
+WARN: 2025/04/27 23:59:21 auth.go:74: [Login] Failed login: user not found — cindy.client@example.com
+WARN: 2025/04/27 23:59:21 web.go:29: [WebUI] Login failed for cindy.client@example.com from IP: ::1
+WARN: 2025/04/27 23:59:39 tickets.go:84: [TicketWebUI] Failed to parse skillsNeeded for ticket 11
+WARN: 2025/04/27 23:59:55 tickets.go:84: [TicketWebUI] Failed to parse skillsNeeded for ticket 11
+WARN: 2025/04/28 00:05:35 maintenance.go:18: [Maintenance] Admin initiated full database wipe.
+WARN: 2025/04/28 00:05:46 web.go:55: [WebUI] User not found for session (ID 7), clearing session.
+WARN: 2025/04/28 00:06:23 session.go:47: [Session] No session file found.
+WARN: 2025/04/28 00:06:42 session.go:47: [Session] No session file found.
+WARN: 2025/04/28 00:07:14 maintenance.go:18: [Maintenance] Admin initiated full database wipe.
+WARN: 2025/04/28 00:07:15 session.go:47: [Session] No session file found.
+WARN: 2025/04/28 00:09:38 maintenance.go:18: [Maintenance] Admin initiated full database wipe.
+WARN: 2025/04/28 00:09:39 session.go:47: [Session] No session file found.
+WARN: 2025/04/28 00:09:44 session.go:47: [Session] No session file found.
+WARN: 2025/04/28 00:09:58 session.go:47: [Session] No session file found.
+WARN: 2025/04/28 00:11:57 session.go:46: [Session] No session file found.
+WARN: 2025/04/28 00:12:11 session.go:46: [Session] No session file found.
+WARN: 2025/04/28 00:12:40 web.go:55: [WebUI] User not found for session (ID 1), clearing session.
+WARN: 2025/04/28 08:50:53 session.go:46: [Session] No session file found.
+WARN: 2025/04/28 08:52:06 auth.go:53: [Auth] Invalid password for user: alice.tech@example.com
+WARN: 2025/04/28 08:52:06 cli.go:124: [Login] Attempt 1 failed for alice.tech@example.com

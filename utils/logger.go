@@ -69,6 +69,32 @@ func LogError(message string, err error) {
 	}
 }
 
+// New — Log Info with IP Address
+func LogInfoIP(message string, ip string) {
+	formatted := formatIPMessage(message, ip)
+	LogInfo(formatted)
+}
+
+// New — Log Warning with IP Address
+func LogWarningIP(message string, ip string) {
+	formatted := formatIPMessage(message, ip)
+	LogWarning(formatted)
+}
+
+// New — Log Error with IP Address
+func LogErrorIP(message string, err error, ip string) {
+	formatted := formatIPMessage(message, ip)
+	LogError(formatted, err)
+}
+
+// New — helper to format IPs into message
+func formatIPMessage(message, ip string) string {
+	if ip == "" {
+		ip = "CLI-Local"
+	}
+	return fmt.Sprintf("(IP: %s) %s", ip, message)
+}
+
 func LoadRecentLogs(path string, max int) []string {
 	lines := []string{}
 	file, err := os.Open(path)

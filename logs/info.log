@@ -538,3 +538,280 @@ INFO: 2025/04/27 22:53:11 web.go:24: [WebUI] Login attempt from IP: ::1 — admi
 INFO: 2025/04/27 22:53:11 auth.go:107: [Login] Successful login — admin@example.com
 INFO: 2025/04/27 22:53:11 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
 INFO: 2025/04/27 22:55:37 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 22:57:21 auth.go:63: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/27 22:57:21 cli.go:119: [Login] Successful login for admin@example.com
+INFO: 2025/04/27 22:57:21 session.go:38: [Session] Token saved successfully.
+INFO: 2025/04/27 22:57:21 main.go:83: [Startup] New session saved after login
+INFO: 2025/04/27 22:57:21 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/27 22:57:21 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/27 22:57:21 cli.go:153: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/27 22:57:21 main.go:99: [CLI] Waiting for user input
+INFO: 2025/04/27 22:59:32 main.go:110: [CLI] Session manually closed by user
+INFO: 2025/04/27 22:59:32 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 23:22:58 web.go:80: [Logout] User logged out: admin@example.com
+INFO: 2025/04/27 23:23:00 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/27 23:23:00 auth.go:107: [Login] Successful login — tech@example.com
+INFO: 2025/04/27 23:23:00 web.go:33: [WebUI] Login successful for tech@example.com from IP: ::1
+INFO: 2025/04/27 23:23:04 web.go:80: [Logout] User logged out: tech@example.com
+INFO: 2025/04/27 23:23:08 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/27 23:23:08 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/27 23:23:08 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/27 23:23:23 main.go:47: [Startup] Admin manually requested database reseed.
+INFO: 2025/04/27 23:23:23 maintenance.go:52: [Maintenance] Database cleared successfully.
+INFO: 2025/04/27 23:23:23 maintenance.go:57: [Maintenance] Starting reseed of demo data.
+INFO: 2025/04/27 23:23:23 seed.go:22: [Seed] Account created: Acme Corp
+INFO: 2025/04/27 23:23:23 seed.go:22: [Seed] Account created: Globex Inc
+INFO: 2025/04/27 23:23:23 seed.go:78: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/27 23:23:23 seed.go:78: [Seed] User created: alice.tech@example.com (tech)
+INFO: 2025/04/27 23:23:24 seed.go:78: [Seed] User created: bob.tech@example.com (tech)
+INFO: 2025/04/27 23:23:24 seed.go:78: [Seed] User created: charlie.tech@example.com (tech)
+INFO: 2025/04/27 23:23:24 seed.go:78: [Seed] User created: cindy.client@acme.com (client)
+INFO: 2025/04/27 23:23:24 seed.go:78: [Seed] User created: gary.client@globex.com (client)
+INFO: 2025/04/27 23:23:24 seed.go:128: [Seed] Ticket created: Setup VPN Access
+INFO: 2025/04/27 23:23:24 seed.go:128: [Seed] Ticket created: Broken MacBook Pro
+INFO: 2025/04/27 23:23:24 seed.go:128: [Seed] Ticket created: Cloud Backup Failure
+INFO: 2025/04/27 23:23:24 seed.go:128: [Seed] Ticket created: Password Reset
+INFO: 2025/04/27 23:23:24 seed.go:128: [Seed] Ticket created: New Laptop Setup
+INFO: 2025/04/27 23:23:24 seed.go:128: [Seed] Ticket created: Server Monitoring Scripts Broken
+INFO: 2025/04/27 23:23:24 maintenance.go:63: [Maintenance] Database reseed finished successfully.
+INFO: 2025/04/27 23:24:52 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 23:32:48 main.go:47: [Startup] Admin manually requested database reseed.
+INFO: 2025/04/27 23:32:48 maintenance.go:52: [Maintenance] Database cleared successfully.
+INFO: 2025/04/27 23:32:48 maintenance.go:57: [Maintenance] Starting reseed of demo data.
+INFO: 2025/04/27 23:32:48 seed.go:22: [Seed] Account created: Acme Corp
+INFO: 2025/04/27 23:32:48 seed.go:22: [Seed] Account created: Globex Inc
+INFO: 2025/04/27 23:32:48 seed.go:78: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/27 23:32:48 seed.go:78: [Seed] User created: alice.tech@example.com (tech)
+INFO: 2025/04/27 23:32:48 seed.go:78: [Seed] User created: bob.tech@example.com (tech)
+INFO: 2025/04/27 23:32:48 seed.go:78: [Seed] User created: charlie.tech@example.com (tech)
+INFO: 2025/04/27 23:32:48 seed.go:78: [Seed] User created: cindy.client@acme.com (client)
+INFO: 2025/04/27 23:32:48 seed.go:78: [Seed] User created: gary.client@globex.com (client)
+INFO: 2025/04/27 23:32:48 seed.go:128: [Seed] Ticket created: Setup VPN Access
+INFO: 2025/04/27 23:32:48 seed.go:128: [Seed] Ticket created: Broken MacBook Pro
+INFO: 2025/04/27 23:32:48 seed.go:128: [Seed] Ticket created: Cloud Backup Failure
+INFO: 2025/04/27 23:32:48 seed.go:128: [Seed] Ticket created: Password Reset
+INFO: 2025/04/27 23:32:48 seed.go:128: [Seed] Ticket created: New Laptop Setup
+INFO: 2025/04/27 23:32:48 seed.go:128: [Seed] Ticket created: Server Monitoring Scripts Broken
+INFO: 2025/04/27 23:32:48 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 23:32:49 maintenance.go:64: [Maintenance] Database reseed finished successfully.
+INFO: 2025/04/27 23:32:49 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 23:33:01 web.go:82: [Logout] User logged out: admin@example.com
+INFO: 2025/04/27 23:33:03 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/27 23:33:03 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/27 23:33:03 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/27 23:35:39 techs.go:144: [AdminTech] Technician alice.tech@example.com updated successfully
+INFO: 2025/04/27 23:35:47 techs.go:144: [AdminTech] Technician alice.tech@example.com updated successfully
+INFO: 2025/04/27 23:38:17 web.go:82: [Logout] User logged out: admin@example.com
+INFO: 2025/04/27 23:40:14 main.go:47: [Startup] Admin manually requested database reseed.
+INFO: 2025/04/27 23:40:14 maintenance.go:52: [Maintenance] Database cleared successfully.
+INFO: 2025/04/27 23:40:14 maintenance.go:57: [Maintenance] Starting reseed of demo data.
+INFO: 2025/04/27 23:40:14 seed.go:22: [Seed] Account created: Acme Corp
+INFO: 2025/04/27 23:40:14 seed.go:22: [Seed] Account created: Globex Inc
+INFO: 2025/04/27 23:40:14 seed.go:78: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/27 23:40:14 seed.go:78: [Seed] User created: alice.tech@example.com (tech)
+INFO: 2025/04/27 23:40:14 seed.go:78: [Seed] User created: bob.tech@example.com (tech)
+INFO: 2025/04/27 23:40:14 seed.go:78: [Seed] User created: charlie.tech@example.com (tech)
+INFO: 2025/04/27 23:40:14 seed.go:78: [Seed] User created: cindy.client@acme.com (client)
+INFO: 2025/04/27 23:40:14 seed.go:78: [Seed] User created: gary.client@globex.com (client)
+INFO: 2025/04/27 23:40:14 seed.go:128: [Seed] Ticket created: Setup VPN Access
+INFO: 2025/04/27 23:40:14 seed.go:128: [Seed] Ticket created: Broken MacBook Pro
+INFO: 2025/04/27 23:40:14 seed.go:128: [Seed] Ticket created: Cloud Backup Failure
+INFO: 2025/04/27 23:40:15 seed.go:128: [Seed] Ticket created: Password Reset
+INFO: 2025/04/27 23:40:15 seed.go:128: [Seed] Ticket created: New Laptop Setup
+INFO: 2025/04/27 23:40:15 seed.go:128: [Seed] Ticket created: Server Monitoring Scripts Broken
+INFO: 2025/04/27 23:40:15 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 23:40:15 maintenance.go:64: [Maintenance] Database reseed finished successfully.
+INFO: 2025/04/27 23:40:15 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 23:40:24 web.go:24: [WebUI] Login attempt from IP: ::1 — tech@example.com
+INFO: 2025/04/27 23:40:25 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/27 23:40:25 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/27 23:40:25 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/27 23:40:29 web.go:82: [Logout] User logged out: admin@example.com
+INFO: 2025/04/27 23:40:31 web.go:24: [WebUI] Login attempt from IP: ::1 — client@example.com
+INFO: 2025/04/27 23:40:33 web.go:24: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/27 23:40:33 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/27 23:40:33 web.go:33: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/27 23:42:04 web.go:82: [Logout] User logged out: admin@example.com
+INFO: 2025/04/27 23:42:16 web.go:24: [WebUI] Login attempt from IP: ::1 — alice.tech@example.com
+INFO: 2025/04/27 23:42:16 auth.go:107: [Login] Successful login — alice.tech@example.com
+INFO: 2025/04/27 23:42:16 web.go:33: [WebUI] Login successful for alice.tech@example.com from IP: ::1
+INFO: 2025/04/27 23:42:34 web.go:82: [Logout] User logged out: alice.tech@example.com
+INFO: 2025/04/27 23:42:47 web.go:24: [WebUI] Login attempt from IP: ::1 — cindy.client@acme.com
+INFO: 2025/04/27 23:42:47 auth.go:107: [Login] Successful login — cindy.client@acme.com
+INFO: 2025/04/27 23:42:47 web.go:33: [WebUI] Login successful for cindy.client@acme.com from IP: ::1
+INFO: 2025/04/27 23:43:05 web.go:82: [Logout] User logged out: cindy.client@acme.com
+INFO: 2025/04/27 23:43:16 web.go:24: [WebUI] Login attempt from IP: ::1 — alice.tech@example.com
+INFO: 2025/04/27 23:43:16 auth.go:107: [Login] Successful login — alice.tech@example.com
+INFO: 2025/04/27 23:43:16 web.go:33: [WebUI] Login successful for alice.tech@example.com from IP: ::1
+INFO: 2025/04/27 23:44:27 web.go:82: [Logout] User logged out: alice.tech@example.com
+INFO: 2025/04/27 23:56:10 main.go:47: [Startup] Admin manually requested database reseed.
+INFO: 2025/04/27 23:56:10 maintenance.go:52: [Maintenance] Database cleared successfully.
+INFO: 2025/04/27 23:56:10 maintenance.go:57: [Maintenance] Starting reseed of demo data.
+INFO: 2025/04/27 23:56:10 seed.go:22: [Seed] Account created: Acme Corp
+INFO: 2025/04/27 23:56:10 seed.go:22: [Seed] Account created: Globex Inc
+INFO: 2025/04/27 23:56:10 seed.go:78: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/27 23:56:10 seed.go:78: [Seed] User created: alice.tech@example.com (tech)
+INFO: 2025/04/27 23:56:10 seed.go:78: [Seed] User created: bob.tech@example.com (tech)
+INFO: 2025/04/27 23:56:10 seed.go:78: [Seed] User created: charlie.tech@example.com (tech)
+INFO: 2025/04/27 23:56:10 seed.go:78: [Seed] User created: cindy.client@acme.com (client)
+INFO: 2025/04/27 23:56:10 seed.go:78: [Seed] User created: gary.client@globex.com (client)
+INFO: 2025/04/27 23:56:10 seed.go:128: [Seed] Ticket created: Setup VPN Access
+INFO: 2025/04/27 23:56:10 seed.go:128: [Seed] Ticket created: Broken MacBook Pro
+INFO: 2025/04/27 23:56:10 seed.go:128: [Seed] Ticket created: Cloud Backup Failure
+INFO: 2025/04/27 23:56:10 seed.go:128: [Seed] Ticket created: Password Reset
+INFO: 2025/04/27 23:56:10 seed.go:128: [Seed] Ticket created: New Laptop Setup
+INFO: 2025/04/27 23:56:10 seed.go:128: [Seed] Ticket created: Server Monitoring Scripts Broken
+INFO: 2025/04/27 23:56:10 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 23:56:11 maintenance.go:64: [Maintenance] Database reseed finished successfully.
+INFO: 2025/04/27 23:56:11 session.go:77: [Session] Session cleared.
+INFO: 2025/04/27 23:56:17 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/27 23:56:18 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/27 23:56:18 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/27 23:56:26 web.go:83: [Logout] User logged out: admin@example.com
+INFO: 2025/04/27 23:56:38 web.go:25: [WebUI] Login attempt from IP: ::1 — alice.tech@example.com
+INFO: 2025/04/27 23:56:38 auth.go:107: [Login] Successful login — alice.tech@example.com
+INFO: 2025/04/27 23:56:38 web.go:34: [WebUI] Login successful for alice.tech@example.com from IP: ::1
+INFO: 2025/04/27 23:56:40 web.go:83: [Logout] User logged out: alice.tech@example.com
+INFO: 2025/04/27 23:56:42 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/27 23:56:42 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/27 23:56:42 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/27 23:57:27 techs.go:144: [AdminTech] Technician alice.tech@example.com updated successfully
+INFO: 2025/04/27 23:58:18 web.go:83: [Logout] User logged out: admin@example.com
+INFO: 2025/04/27 23:58:50 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/27 23:58:50 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/27 23:58:50 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/27 23:59:04 web.go:83: [Logout] User logged out: admin@example.com
+INFO: 2025/04/27 23:59:21 web.go:25: [WebUI] Login attempt from IP: ::1 — cindy.client@example.com
+INFO: 2025/04/27 23:59:33 web.go:25: [WebUI] Login attempt from IP: ::1 — cindy.client@acme.com
+INFO: 2025/04/27 23:59:33 auth.go:107: [Login] Successful login — cindy.client@acme.com
+INFO: 2025/04/27 23:59:33 web.go:34: [WebUI] Login successful for cindy.client@acme.com from IP: ::1
+INFO: 2025/04/28 00:00:42 web.go:83: [Logout] User logged out: cindy.client@acme.com
+INFO: 2025/04/28 00:00:43 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/28 00:00:43 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/28 00:00:43 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/28 00:05:35 main.go:47: [Startup] Admin manually requested database reseed.
+INFO: 2025/04/28 00:05:36 maintenance.go:52: [Maintenance] Database cleared successfully.
+INFO: 2025/04/28 00:05:36 maintenance.go:57: [Maintenance] Starting reseed of demo data.
+INFO: 2025/04/28 00:05:36 seed.go:23: [Seed] Account created: Acme Corp
+INFO: 2025/04/28 00:05:36 seed.go:23: [Seed] Account created: Globex Inc
+INFO: 2025/04/28 00:05:36 seed.go:89: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/28 00:05:36 seed.go:89: [Seed] User created: alice.tech@example.com (tech)
+INFO: 2025/04/28 00:05:36 seed.go:89: [Seed] User created: bob.tech@example.com (tech)
+INFO: 2025/04/28 00:05:36 seed.go:89: [Seed] User created: charlie.tech@example.com (tech)
+INFO: 2025/04/28 00:05:36 seed.go:89: [Seed] User created: cindy.client@acme.com (client)
+INFO: 2025/04/28 00:05:36 seed.go:89: [Seed] User created: gary.client@globex.com (client)
+INFO: 2025/04/28 00:05:36 seed.go:139: [Seed] Ticket created: Setup VPN Access
+INFO: 2025/04/28 00:05:36 seed.go:139: [Seed] Ticket created: Broken MacBook Pro
+INFO: 2025/04/28 00:05:36 seed.go:139: [Seed] Ticket created: Cloud Backup Failure
+INFO: 2025/04/28 00:05:36 seed.go:139: [Seed] Ticket created: Password Reset
+INFO: 2025/04/28 00:05:36 seed.go:139: [Seed] Ticket created: New Laptop Setup
+INFO: 2025/04/28 00:05:36 seed.go:139: [Seed] Ticket created: Server Monitoring Scripts Broken
+INFO: 2025/04/28 00:05:36 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:05:36 maintenance.go:64: [Maintenance] Database reseed finished successfully.
+INFO: 2025/04/28 00:05:36 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:05:48 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/28 00:05:48 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/28 00:05:48 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/28 00:05:51 ticket.go:741: [TicketAdmin] Found 1 matching technicians for ticket 5
+INFO: 2025/04/28 00:05:55 ticket.go:780: [TicketAdmin] Ticket 5 assigned to tech 2
+INFO: 2025/04/28 00:05:56 ticket.go:741: [TicketAdmin] Found 1 matching technicians for ticket 6
+INFO: 2025/04/28 00:05:59 ticket.go:780: [TicketAdmin] Ticket 6 assigned to tech 4
+INFO: 2025/04/28 00:06:23 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:06:42 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:06:54 auth.go:63: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/28 00:06:54 cli.go:119: [Login] Successful login for admin@example.com
+INFO: 2025/04/28 00:06:54 session.go:38: [Session] Token saved successfully.
+INFO: 2025/04/28 00:06:54 main.go:97: [Startup] New session saved after login
+INFO: 2025/04/28 00:06:54 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/28 00:06:54 reporting.go:65: [Report] No unassigned tickets found
+INFO: 2025/04/28 00:06:54 cli.go:153: [Dashboard] Displayed for user 1 (admin)
+INFO: 2025/04/28 00:06:54 main.go:113: [CLI] Waiting for user input
+INFO: 2025/04/28 00:07:10 main.go:113: [CLI] Waiting for user input
+INFO: 2025/04/28 00:07:14 main.go:47: [Startup] Admin manually requested database reseed.
+INFO: 2025/04/28 00:07:14 maintenance.go:52: [Maintenance] Database cleared successfully.
+INFO: 2025/04/28 00:07:14 maintenance.go:57: [Maintenance] Starting reseed of demo data.
+INFO: 2025/04/28 00:07:14 seed.go:23: [Seed] Account created: Acme Corp
+INFO: 2025/04/28 00:07:14 seed.go:23: [Seed] Account created: Globex Inc
+INFO: 2025/04/28 00:07:14 seed.go:89: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/28 00:07:14 seed.go:89: [Seed] User created: alice.tech@example.com (tech)
+INFO: 2025/04/28 00:07:14 seed.go:89: [Seed] User created: bob.tech@example.com (tech)
+INFO: 2025/04/28 00:07:15 seed.go:89: [Seed] User created: charlie.tech@example.com (tech)
+INFO: 2025/04/28 00:07:15 seed.go:89: [Seed] User created: cindy.client@acme.com (client)
+INFO: 2025/04/28 00:07:15 seed.go:89: [Seed] User created: gary.client@globex.com (client)
+INFO: 2025/04/28 00:07:15 seed.go:139: [Seed] Ticket created: Setup VPN Access
+INFO: 2025/04/28 00:07:15 seed.go:139: [Seed] Ticket created: Broken MacBook Pro
+INFO: 2025/04/28 00:07:15 seed.go:139: [Seed] Ticket created: Cloud Backup Failure
+INFO: 2025/04/28 00:07:15 seed.go:139: [Seed] Ticket created: Password Reset
+INFO: 2025/04/28 00:07:15 seed.go:139: [Seed] Ticket created: New Laptop Setup
+INFO: 2025/04/28 00:07:15 seed.go:139: [Seed] Ticket created: Server Monitoring Scripts Broken
+INFO: 2025/04/28 00:07:15 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:07:15 maintenance.go:64: [Maintenance] Database reseed finished successfully.
+INFO: 2025/04/28 00:07:15 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:07:15 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:09:38 main.go:47: [Startup] Admin manually requested database reseed.
+INFO: 2025/04/28 00:09:38 maintenance.go:52: [Maintenance] Database cleared successfully.
+INFO: 2025/04/28 00:09:38 maintenance.go:57: [Maintenance] Starting reseed of demo data.
+INFO: 2025/04/28 00:09:38 seed.go:23: [Seed] Account created: Acme Corp
+INFO: 2025/04/28 00:09:38 seed.go:23: [Seed] Account created: Globex Inc
+INFO: 2025/04/28 00:09:38 seed.go:89: [Seed] User created: admin@example.com (admin)
+INFO: 2025/04/28 00:09:38 seed.go:89: [Seed] User created: alice.tech@example.com (tech)
+INFO: 2025/04/28 00:09:38 seed.go:89: [Seed] User created: bob.tech@example.com (tech)
+INFO: 2025/04/28 00:09:38 seed.go:89: [Seed] User created: charlie.tech@example.com (tech)
+INFO: 2025/04/28 00:09:38 seed.go:89: [Seed] User created: cindy.client@acme.com (client)
+INFO: 2025/04/28 00:09:38 seed.go:89: [Seed] User created: gary.client@globex.com (client)
+INFO: 2025/04/28 00:09:38 seed.go:139: [Seed] Ticket created: Setup VPN Access
+INFO: 2025/04/28 00:09:38 seed.go:139: [Seed] Ticket created: Broken MacBook Pro
+INFO: 2025/04/28 00:09:38 seed.go:139: [Seed] Ticket created: Cloud Backup Failure
+INFO: 2025/04/28 00:09:38 seed.go:139: [Seed] Ticket created: Password Reset
+INFO: 2025/04/28 00:09:38 seed.go:139: [Seed] Ticket created: New Laptop Setup
+INFO: 2025/04/28 00:09:38 seed.go:139: [Seed] Ticket created: Server Monitoring Scripts Broken
+INFO: 2025/04/28 00:09:38 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:09:39 maintenance.go:64: [Maintenance] Database reseed finished successfully.
+INFO: 2025/04/28 00:09:39 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:09:39 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:09:44 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:09:58 session.go:77: [Session] Session cleared.
+INFO: 2025/04/28 00:12:19 auth.go:63: [Auth] User logged in: admin@example.com (admin)
+INFO: 2025/04/28 00:12:19 cli.go:119: [Login] Successful login for admin@example.com
+INFO: 2025/04/28 00:12:19 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/28 00:12:19 main.go:101: [Startup] New session saved after login
+INFO: 2025/04/28 00:12:19 reporting.go:32: [Report] Status report generated
+INFO: 2025/04/28 00:12:19 reporting.go:72: [Report] Found 2 unassigned tickets
+INFO: 2025/04/28 00:12:19 cli.go:153: [Dashboard] Displayed for user 13 (admin)
+INFO: 2025/04/28 00:12:19 main.go:117: [CLI] Waiting for user input
+INFO: 2025/04/28 00:12:25 main.go:128: [CLI] Session manually closed by user
+INFO: 2025/04/28 00:12:25 session.go:76: [Session] Session cleared.
+INFO: 2025/04/28 00:12:42 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/28 00:12:42 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/28 00:12:42 web.go:34: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/28 00:13:44 ticket.go:741: [TicketAdmin] Found 1 matching technicians for ticket 17
+INFO: 2025/04/28 00:14:22 web.go:83: [Logout] User logged out: admin@example.com
+INFO: 2025/04/28 00:16:31 web.go:25: [WebUI] Login attempt from IP: ::1 — admin@example.com
+INFO: 2025/04/28 00:16:32 auth.go:107: [Login] Successful login — admin@example.com
+INFO: 2025/04/28 00:16:32 web.go:51: [WebUI] Login successful for admin@example.com from IP: ::1
+INFO: 2025/04/28 00:16:36 ticket.go:741: [TicketAdmin] Found 1 matching technicians for ticket 18
+INFO: 2025/04/28 00:16:37 ticket.go:780: [TicketAdmin] Ticket 18 assigned to tech 16
+INFO: 2025/04/28 08:52:13 auth.go:63: [Auth] User logged in: alice.tech@example.com (tech)
+INFO: 2025/04/28 08:52:13 cli.go:119: [Login] Successful login for alice.tech@example.com
+INFO: 2025/04/28 08:52:13 session.go:37: [Session] Token saved successfully.
+INFO: 2025/04/28 08:52:13 main.go:101: [Startup] New session saved after login
+INFO: 2025/04/28 08:52:13 ticket.go:70: [TicketCLI] 1 tickets listed for user 14 (role: tech)
+INFO: 2025/04/28 08:52:13 cli.go:153: [Dashboard] Displayed for user 14 (tech)
+INFO: 2025/04/28 08:52:13 main.go:117: [CLI] Waiting for user input
+INFO: 2025/04/28 08:53:06 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/28 08:53:06 cli.go:851: [Help] Help viewed by user 14 (tech)
+INFO: 2025/04/28 08:53:06 main.go:117: [CLI] Waiting for user input
+INFO: 2025/04/28 08:53:11 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/28 08:53:17 ticket.go:184: [TicketCLI] Ticket 13 viewed by user 14 (role: tech)
+INFO: 2025/04/28 08:53:17 cli.go:634: [ViewTicket] User 14 (tech) viewed ticket 13
+INFO: 2025/04/28 08:53:17 main.go:117: [CLI] Waiting for user input
+INFO: 2025/04/28 08:53:31 main.go:117: [CLI] Waiting for user input
+INFO: 2025/04/28 08:53:38 main.go:117: [CLI] Waiting for user input
+INFO: 2025/04/28 08:53:41 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/28 08:53:50 cli.go:557: [UpdateTicket] User 14 (tech) updated ticket 14
+INFO: 2025/04/28 08:53:50 main.go:117: [CLI] Waiting for user input
+INFO: 2025/04/28 08:54:40 session.go:64: [Session] Token loaded and validated.
+INFO: 2025/04/28 08:54:49 ticket.go:123: [TicketCLI] Ticket 13 updated by user 14 (role: tech)
+INFO: 2025/04/28 08:54:49 cli.go:557: [UpdateTicket] User 14 (tech) updated ticket 13
+INFO: 2025/04/28 08:54:49 main.go:117: [CLI] Waiting for user input
+INFO: 2025/04/28 09:04:39 main.go:117: [CLI] Waiting for user input

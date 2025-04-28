@@ -3,6 +3,7 @@ package handlers
 import (
 	"bufio"
 	"fmt"
+	"github.com/manifoldco/promptui"
 	"os"
 	"strconv"
 	"strings"
@@ -498,7 +499,6 @@ func handleCreateTicket() {
 }
 
 // handleUpdateTicket allows a technician or admin the ability to modify an existing ticket.
-// They can update the description, priority, and status of a ticket by its ID.
 func handleUpdateTicket() {
 	claims, err := utils.LoadClaims()
 	if err != nil || claims == nil {
@@ -524,37 +524,217 @@ func handleUpdateTicket() {
 		return
 	}
 
-	fmt.Printf("New Description [%s]: ", ticket.Description)
-	desc, _ := reader.ReadString('\n')
-	desc = strings.TrimSpace(desc)
-	if desc == "" {
-		desc = ticket.Description
+	for {
+		prompt := promptui.Select{
+			Label: "Select an action for this ticket",
+			Items: []string{"Update Description", "Update Priority", "Update Status", "Manage Comments", "Return"},
+		}
+
+		_, action, err := prompt.Run()
+		if err != nil {
+			utils.LogError("[CLI] Failed during update menu prompt", err)
+			fmt.Println("[Error] Failed to choose action.")
+			return
+		}
+
+		switch action {
+		case "Update Description":
+			fmt.Printf("New Description [%s]: ", ticket.Description)
+			newDesc, _ := reader.ReadString('\n')
+			newDesc = strings.TrimSpace(newDesc)
+			if newDesc == "" {
+				newDesc = ticket.Description
+			}
+			ticket.Description = newDesc
+
+		case "Update Priority":
+			priorityOptions := []string{"low", "medium", "high", "critical"}
+			currentPriorityIndex := utils.IndexOf(ticket.Priority, priorityOptions)
+			newPriority, err := utils.PromptSelect("Select Priority", priorityOptions, currentPriorityIndex)
+			if err == nil {
+				ticket.Priority = newPriority
+			}
+
+		case "Update Status":
+			statusOptions := []string{
+				"initially reported",
+				"customer to follow up",
+				"support to follow up",
+				"working",
+				"closed",
+			}
+			currentStatusIndex := utils.IndexOf(ticket.Status, statusOptions)
+			newStatus, err := utils.PromptSelect("Select Status", statusOptions, currentStatusIndex)
+			if err == nil {
+				ticket.Status = newStatus
+			}
+
+		case "Manage Comments":
+			handleManageComments(ticketID, claims.UserID, claims.Email)
+
+		case "Return":
+			// Save ticket updates before exiting
+			err := config.DB.Save(&ticket).Error
+			if err != nil {
+				fmt.Println("[Error] Failed to save ticket updates.")
+				utils.LogError(fmt.Sprintf("[UpdateTicket] Failed to save ticket %d", ticketID), err)
+			} else {
+				fmt.Println("[Success] Ticket updated successfully.")
+				utils.LogInfo(fmt.Sprintf("[UpdateTicket] User %d updated ticket %d", claims.UserID, ticketID))
+			}
+			return
+		}
+	}
+}
+
+// handleManageComments launches a subprocess to add, edit, or delete comments for a given ticket
+func handleManageComments(ticketID uint, userID uint, userEmail string) {
+	for {
+		fmt.Println("\nComment Management for Ticket:", ticketID)
+
+		prompt := promptui.Select{
+			Label: "Choose an action",
+			Items: []string{"Add Comment", "Edit Comment", "Delete Comment", "Return"},
+		}
+
+		_, action, err := prompt.Run()
+		if err != nil {
+			utils.LogError("[CLI] Failed during comment action prompt", err)
+			fmt.Println("[Error] Failed to choose action.")
+			return
+		}
+
+		switch action {
+		case "Add Comment":
+			handleAddComment(ticketID, userID, userEmail)
+		case "Edit Comment":
+			handleEditComment(ticketID)
+		case "Delete Comment":
+			handleDeleteComment(ticketID)
+		case "Return":
+			return
+		}
+	}
+}
+
+func handleAddComment(ticketID uint, userID uint, userEmail string) {
+	prompt := promptui.Prompt{
+		Label: "Enter your comment",
 	}
 
-	priorityOptions := []string{"low", "medium", "high", "critical"}
-	priorityIndex := utils.IndexOf(ticket.Priority, priorityOptions)
-	priority, err := utils.PromptSelect("Select Priority", priorityOptions, priorityIndex)
-	if err != nil {
-		fmt.Println("Priority selection cancelled.")
+	commentText, err := prompt.Run()
+	if err != nil || strings.TrimSpace(commentText) == "" {
+		fmt.Println("[Info] No comment entered. Aborting add.")
 		return
 	}
 
-	statusOptions := []string{
-		"initially reported",
-		"customer to follow up",
-		"support to follow up",
-		"working",
-		"closed",
-	}
-	statusIndex := utils.IndexOf(ticket.Status, statusOptions)
-	status, err := utils.PromptSelect("Select Status", statusOptions, statusIndex)
+	err = controllers.AddCommentToTicket(ticketID, commentText, userID, userEmail, "CLI-Local")
 	if err != nil {
-		fmt.Println("Status selection cancelled.")
+		fmt.Println("[Error] Failed to add comment:", err)
+	} else {
+		fmt.Println("[Success] Comment added successfully.")
+	}
+}
+
+func handleEditComment(ticketID uint) {
+	comments, err := controllers.GetCommentsForTicket(ticketID)
+	if err != nil || len(comments) == 0 {
+		fmt.Println("[Info] No comments to edit.")
 		return
 	}
 
-	controllers.UpdateTicket(ticketID, claims.UserID, claims.Role, desc, priority, status)
-	utils.LogInfo(fmt.Sprintf("[UpdateTicket] User %d (%s) updated ticket %d", claims.UserID, claims.Role, ticketID))
+	commentItems := []string{}
+	for _, c := range comments {
+		commentItems = append(commentItems, fmt.Sprintf("ID %d: %s", c.ID, truncate(c.Content, 30)))
+	}
+
+	prompt := promptui.Select{
+		Label: "Select a comment to edit",
+		Items: commentItems,
+	}
+
+	index, _, err := prompt.Run()
+	if err != nil {
+		fmt.Println("[Info] Edit canceled.")
+		return
+	}
+
+	selectedComment := comments[index]
+
+	newPrompt := promptui.Prompt{
+		Label:   "Enter new text",
+		Default: selectedComment.Content,
+	}
+
+	newText, err := newPrompt.Run()
+	if err != nil || strings.TrimSpace(newText) == "" {
+		fmt.Println("[Info] Edit canceled.")
+		return
+	}
+
+	err = controllers.EditComment(selectedComment.ID, newText, "CLI-Local")
+	if err != nil {
+		fmt.Println("[Error] Failed to edit comment.")
+	} else {
+		fmt.Println("[Success] Comment updated.")
+	}
+}
+
+func handleDeleteComment(ticketID uint) {
+	comments, err := controllers.GetCommentsForTicket(ticketID)
+	if err != nil || len(comments) == 0 {
+		fmt.Println("[Info] No comments to delete.")
+		return
+	}
+
+	commentItems := []string{}
+	for _, c := range comments {
+		commentItems = append(commentItems, fmt.Sprintf("ID %d: %s", c.ID, truncate(c.Content, 30)))
+	}
+
+	prompt := promptui.Select{
+		Label: "Select a comment to delete",
+		Items: commentItems,
+	}
+
+	index, _, err := prompt.Run()
+	if err != nil {
+		fmt.Println("[Info] Delete canceled.")
+		return
+	}
+
+	selectedComment := comments[index]
+
+	confirm := promptui.Prompt{
+		Label: "Are you sure you want to delete this comment? (yes/no)",
+		Validate: func(input string) error {
+			if input != "yes" && input != "no" {
+				return fmt.Errorf("please type 'yes' or 'no'")
+			}
+			return nil
+		},
+	}
+
+	confirmation, err := confirm.Run()
+	if err != nil || confirmation != "yes" {
+		fmt.Println("[Info] Delete canceled.")
+		return
+	}
+
+	err = controllers.DeleteComment(selectedComment.ID, "CLI-Local")
+	if err != nil {
+		fmt.Println("[Error] Failed to delete comment.")
+	} else {
+		fmt.Println("[Success] Comment deleted.")
+	}
+}
+
+// truncate returns a shortened version of a string with ellipsis if too long
+func truncate(text string, limit int) string {
+	if len(text) > limit {
+		return text[:limit] + "..."
+	}
+	return text
 }
 
 // handleListTickets displays tickets relevant to the current user.

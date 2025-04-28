@@ -24,13 +24,13 @@ func CreateTicket(title, desc, priority, status string, clientID uint) {
 	}
 
 	if err := config.DB.Create(&ticket).Error; err != nil {
-		utils.LogError("[TicketCLI] Failed to create ticket", err)
+		utils.LogErrorIP("[TicketCLI] Failed to create ticket", err, "CLI-Local")
 		fmt.Println("[Error] Failed to create ticket.")
 		return
 	}
 
 	fmt.Println("Ticket created successfully.")
-	utils.LogInfo(fmt.Sprintf("[TicketCLI] Ticket created by user %d — ID: %d", clientID, ticket.ID))
+	utils.LogInfoIP(fmt.Sprintf("[TicketCLI] Ticket created by user %d — ID: %d", clientID, ticket.ID), "CLI-Local")
 }
 
 // ListTickets displays tickets to the CLI based on user role.
@@ -70,12 +70,13 @@ func ListTickets(userID uint, role string) {
 	utils.LogInfo(fmt.Sprintf("[TicketCLI] %d tickets listed for user %d (role: %s)", len(tickets), userID, role))
 }
 
+/*
 // UpdateTicket updates a ticket's fields via CLI with role enforcement.
 // Allows clients, techs, and admins to modify their assigned tickets.
 func UpdateTicket(ticketID, userID uint, role, desc, priority, status string) {
 	var ticket models.Ticket
 	if err := config.DB.First(&ticket, ticketID).Error; err != nil {
-		utils.LogError("[TicketCLI] Ticket not found", err)
+		utils.LogErrorIP("[TicketCLI] Ticket not found", err, "CLI-Local")
 		fmt.Println("[Error] Ticket not found.")
 		return
 	}
@@ -114,13 +115,70 @@ func UpdateTicket(ticketID, userID uint, role, desc, priority, status string) {
 	}
 
 	if err := config.DB.Save(&ticket).Error; err != nil {
-		utils.LogError("[TicketCLI] Failed to update ticket", err)
+		utils.LogErrorIP("[TicketCLI] Failed to update ticket", err, "CLI-Local")
 		fmt.Println("[Error] Could not update ticket.")
 		return
 	}
 
 	fmt.Println("Ticket updated successfully.")
-	utils.LogInfo(fmt.Sprintf("[TicketCLI] Ticket %d updated by user %d (role: %s)", ticketID, userID, role))
+	utils.LogInfoIP(fmt.Sprintf("[TicketCLI] Ticket %d updated by user %d (role: %s)", ticketID, userID, role), "CLI-Local")
+}
+*/
+
+// AddCommentToTicket creates a new comment for a ticket
+func AddCommentToTicket(ticketID uint, body string, authorID uint, authorEmail string, ip string) error {
+	comment := models.Comment{
+		TicketID:    ticketID,
+		AuthorID:    authorID,
+		AuthorEmail: authorEmail,
+		Content:     body,
+		CreatedAt:   time.Now(),
+	}
+	if err := config.DB.Create(&comment).Error; err != nil {
+		utils.LogErrorIP("[Comment] Failed to add comment", err, ip)
+		return err
+	}
+
+	utils.LogInfoIP(fmt.Sprintf("[Comment] User %d added Comment #%d to Ticket #%d", authorID, comment.ID, ticketID), ip)
+	return nil
+}
+
+// EditComment updates the content of an existing comment
+func EditComment(commentID uint, newContent string, ip string) error {
+	var comment models.Comment
+	if err := config.DB.First(&comment, commentID).Error; err != nil {
+		utils.LogWarningIP(fmt.Sprintf("[Comment] Edit failed — comment %d not found", commentID), ip)
+		return err
+	}
+	comment.Content = newContent
+
+	if err := config.DB.Save(&comment).Error; err != nil {
+		utils.LogErrorIP(fmt.Sprintf("[Comment] Failed to edit comment %d", commentID), err, ip)
+		return err
+	}
+
+	utils.LogInfoIP(fmt.Sprintf("[Comment] Comment %d updated", commentID), ip)
+	return nil
+}
+
+// DeleteComment removes a comment by its ID
+func DeleteComment(commentID uint, ip string) error {
+	if err := config.DB.Delete(&models.Comment{}, commentID).Error; err != nil {
+		utils.LogErrorIP(fmt.Sprintf("[Comment] Failed to delete comment %d", commentID), err, ip)
+		return err
+	}
+
+	utils.LogInfoIP(fmt.Sprintf("[Comment] Comment %d deleted", commentID), ip)
+	return nil
+}
+
+// GetCommentsForTicket retrieves all comments associated with a ticket
+func GetCommentsForTicket(ticketID uint) ([]models.Comment, error) {
+	var comments []models.Comment
+	if err := config.DB.Where("ticket_id = ?", ticketID).Find(&comments).Error; err != nil {
+		return nil, err
+	}
+	return comments, nil
 }
 
 // AssignTicket assigns a technician to a ticket via CLI (admin only).
@@ -128,20 +186,20 @@ func UpdateTicket(ticketID, userID uint, role, desc, priority, status string) {
 func AssignTicket(ticketID, techID uint) {
 	var ticket models.Ticket
 	if err := config.DB.First(&ticket, ticketID).Error; err != nil {
-		utils.LogWarning(fmt.Sprintf("[TicketCLI] Assignment failed — ticket %d not found", ticketID))
+		utils.LogWarningIP(fmt.Sprintf("[TicketCLI] Assignment failed — ticket %d not found", ticketID), "CLI-Local")
 		fmt.Println("[Error] Ticket not found.")
 		return
 	}
 
 	ticket.TechID = &techID
 	if err := config.DB.Save(&ticket).Error; err != nil {
-		utils.LogError("[TicketCLI] Failed to assign technician", err)
+		utils.LogErrorIP("[TicketCLI] Failed to assign technician", err, "CLI-Local")
 		fmt.Println("[Error] Failed to assign technician.")
 		return
 	}
 
 	fmt.Printf("Ticket %d assigned to technician %d successfully.\n", ticketID, techID)
-	utils.LogInfo(fmt.Sprintf("[TicketCLI] Ticket %d assigned to technician %d", ticketID, techID))
+	utils.LogInfoIP(fmt.Sprintf("[TicketCLI] Ticket %d assigned to technician %d", ticketID, techID), "CLI-Local")
 }
 
 // ViewTicket displays full ticket details via CLI with access control.
@@ -189,19 +247,19 @@ func ViewTicket(ticketID, userID uint, role string) {
 func DeleteTicket(ticketID uint) {
 	var ticket models.Ticket
 	if err := config.DB.First(&ticket, ticketID).Error; err != nil {
-		utils.LogWarning(fmt.Sprintf("[TicketCLI] Deletion failed — ticket %d not found", ticketID))
+		utils.LogWarningIP(fmt.Sprintf("[TicketCLI] Deletion failed — ticket %d not found", ticketID), "CLI-Local")
 		fmt.Println("[Error] Ticket not found.")
 		return
 	}
 
 	if err := config.DB.Delete(&ticket).Error; err != nil {
-		utils.LogError("[TicketCLI] Failed to delete ticket", err)
+		utils.LogErrorIP("[TicketCLI] Failed to delete ticket", err, "CLI-Local")
 		fmt.Println("[Error] Failed to delete ticket.")
 		return
 	}
 
 	fmt.Printf("Ticket %d deleted successfully.\n", ticketID)
-	utils.LogInfo(fmt.Sprintf("[TicketCLI] Ticket %d deleted", ticketID))
+	utils.LogInfoIP(fmt.Sprintf("[TicketCLI] Ticket %d deleted", ticketID), "CLI-Local")
 }
 
 // FilterTickets lists tickets based on priority/status filters via CLI.
@@ -288,12 +346,12 @@ func CreateTicketAPI(c *gin.Context) {
 	}
 
 	if err := SaveNewTicket(&ticket); err != nil {
-		utils.LogError("[TicketAPI] Failed to create ticket", err)
+		utils.LogErrorIP("[TicketAPI] Failed to create ticket", err, c.ClientIP())
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Could not save ticket"})
 		return
 	}
 
-	utils.LogInfo(fmt.Sprintf("[TicketAPI] Ticket created successfully — ID: %d", ticket.ID))
+	utils.LogInfoIP(fmt.Sprintf("[TicketAPI] Ticket created successfully — ID: %d", ticket.ID), c.ClientIP())
 	c.JSON(http.StatusCreated, ticket)
 }
 
@@ -304,7 +362,7 @@ func UpdateTicketAPI(c *gin.Context) {
 	var ticket models.Ticket
 
 	if err := config.DB.First(&ticket, id).Error; err != nil {
-		utils.LogWarning(fmt.Sprintf("[TicketAPI] Update failed — ticket %s not found", id))
+		utils.LogWarningIP(fmt.Sprintf("[TicketAPI] Update failed — ticket %s not found", id), c.ClientIP())
 		c.JSON(http.StatusNotFound, gin.H{"error": "Ticket not found"})
 		return
 	}
@@ -315,12 +373,12 @@ func UpdateTicketAPI(c *gin.Context) {
 	}
 
 	if err := ModifyTicket(&ticket); err != nil {
-		utils.LogError("[TicketAPI] Failed to update ticket", err)
+		utils.LogErrorIP("[TicketAPI] Failed to update ticket", err, c.ClientIP())
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Could not update ticket"})
 		return
 	}
 
-	utils.LogInfo(fmt.Sprintf("[TicketAPI] Ticket %d updated successfully", ticket.ID))
+	utils.LogInfoIP(fmt.Sprintf("[TicketAPI] Ticket %d updated successfully", ticket.ID), c.ClientIP())
 	c.JSON(http.StatusOK, ticket)
 }
 
@@ -330,12 +388,12 @@ func DeleteTicketAPI(c *gin.Context) {
 	id := c.Param("id")
 
 	if err := RemoveTicket(id); err != nil {
-		utils.LogError(fmt.Sprintf("[TicketAPI] Failed to delete ticket %s", id), err)
+		utils.LogErrorIP(fmt.Sprintf("[TicketAPI] Failed to delete ticket %s", id), err, c.ClientIP())
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to delete ticket"})
 		return
 	}
 
-	utils.LogInfo(fmt.Sprintf("[TicketAPI] Ticket %s deleted successfully", id))
+	utils.LogInfoIP(fmt.Sprintf("[TicketAPI] Ticket %s deleted successfully", id), c.ClientIP())
 	c.JSON(http.StatusOK, gin.H{"message": "Ticket deleted successfully"})
 }
 
@@ -501,12 +559,12 @@ func AssignTicketAPI(c *gin.Context) {
 
 	ticket.TechID = &body.TechID
 	if err := config.DB.Save(&ticket).Error; err != nil {
-		utils.LogError("[TicketAPI] Failed to assign technician", err)
+		utils.LogErrorIP("[TicketAPI] Failed to assign technician", err, c.ClientIP())
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to assign technician"})
 		return
 	}
 
-	utils.LogInfo(fmt.Sprintf("[TicketAPI] Ticket %s assigned to tech %d by admin %d", ticketID, body.TechID, user.UserID))
+	utils.LogInfoIP(fmt.Sprintf("[TicketAPI] Ticket %s assigned to tech %d by admin %d", ticketID, body.TechID, user.UserID), c.ClientIP())
 	c.JSON(http.StatusOK, gin.H{"message": "Technician assigned successfully"})
 }
 

@@ -122,6 +122,12 @@ func SetupRouterWithEngine(r *gin.Engine) *gin.Engine {
 
 		protected.GET("/users", controllers.GetUsers)
 		protected.DELETE("/users/:id", controllers.DeleteUserAPI)
+
+		// New Comment API Routes
+		protected.POST("/tickets/:id/comments", web.PostComment)
+		protected.GET("/tickets/:id/comments", web.GetCommentsByTicket)
+		protected.PUT("/comments/:id", web.PutComment)
+		protected.DELETE("/comments/:id", web.DeleteCommentAPI)
 	}
 
 	// 404 fallback
